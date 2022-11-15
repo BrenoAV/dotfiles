@@ -1,0 +1,12 @@
+{
+  "clangd.enabled": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.git.enable": true,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.keyMappings.global": {
+    "v": "open:vsplit",
+    "h": "open:split"
+  },
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.3/clangd_15.0.3/bin/clangd"
+}
