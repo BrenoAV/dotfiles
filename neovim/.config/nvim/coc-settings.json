@@ -8,5 +8,6 @@
     "v": "open:vsplit",
     "h": "open:split"
   },
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.3/clangd_15.0.3/bin/clangd"
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.3/clangd_15.0.3/bin/clangd",
+  "vimtex.filetypes": ["tex", "plaintex", "latex", "markdown"]
 }

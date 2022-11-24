@@ -12,6 +12,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
 Plug 'preservim/vim-pencil'
+Plug 'lervag/vimtex', {'for': 'tex'}
+
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
@@ -137,6 +139,7 @@ augroup END
 
 
 autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.htm,*.html,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -185,7 +188,7 @@ let g:ale_fix_on_save = 1
 
 let g:coc_global_extensions = [
 \'coc-pyright', 'coc-explorer', 'coc-docker', 'coc-json', 'coc-snippets',
-\'coc-yaml', 'coc-lua', 'coc-clangd'
+\'coc-yaml', 'coc-lua', 'coc-clangd', 'coc-html', 'coc-css', 'coc-vimtex'
 \]
 
 " Some servers have issues with backup files, see #649.
@@ -559,7 +562,7 @@ endfunction
 
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 
-nmap <C-s> <Plug>MarkdownPreview
+nmap <C-n> <Plug>MarkdownPreview
 
 
 
@@ -571,3 +574,28 @@ set conceallevel=2
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
 let g:vim_markdown_conceal_code_blocks = 0
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-Tex
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Viewer options: One may configure the viewer either by specifying a built-in
+" viewer method:
+let g:vimtex_view_method = 'zathura'
+
+" Or with a generic interface:
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+
+" VimTeX uses latexmk as the default compiler backend. If you use it, which is
+" strongly recommended, you probably don't need to configure anything. If you
+" want another compiler backend, you can change it as follows. The list of
+" supported backends and further explanation is provided in the documentation,
+" see ":help vimtex-compiler".
+let g:vimtex_compiler_method = 'latexmk'
+
+" Most VimTeX mappings rely on localleader and this can be changed with the
+" following line. The default is usually fine and is the symbol "\".
+let maplocalleader = ","
