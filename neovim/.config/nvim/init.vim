@@ -7,8 +7,6 @@ Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'jupyter-vim/jupyter-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
 Plug 'preservim/vim-pencil'
@@ -64,6 +62,17 @@ filetype on " detect and set the filetype option and trigger the FileType Event
 filetype plugin on " Load the plugin file for the file type, if any
 filetype indent on " Load the indent file the file type, if any
 let maplocalleader = ","
+set statusline=
+set statusline +=%1*\ %n\ %*            "buffer number
+set statusline +=%5*%{&ff}%*            "file format
+set statusline +=%3*%y%*                "file type
+set statusline +=%4*\ %<%F%*            "full path
+set statusline +=%2*%m%*                "modified flag
+set statusline +=%1*%=%5l%*             "current line
+set statusline +=%2*/%L%*               "total lines
+set statusline +=%1*%4v\ %*             "virtual column number
+set statusline +=%2*0x%04B\ %*          "character under cursor
+
 
 
 
@@ -133,7 +142,7 @@ autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 
 augroup markdownSpell
     autocmd!
-    autocmd FileType markdown setlocal spell spelllang=en_us,pt_br
+    autocmd FileType markdown setlocal spell spelllang=en_us
     autocmd BufRead,BufNewFile *.md setlocal spell
 augroup END
 
@@ -151,15 +160,11 @@ let g:sonokai_enable_italic = 0
 let g:disable_italic_comment = 1
 colorscheme sonokai
 
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" airline vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'sonokai'
+hi User1 guifg=#eea040 guibg=#222222
+hi User2 guifg=#dd3333 guibg=#222222
+hi User3 guifg=#ff66ff guibg=#222222
+hi User4 guifg=#a0ee40 guibg=#222222
+hi User5 guifg=#eeee40 guibg=#222222
 
 
 
@@ -176,9 +181,7 @@ let g:ale_fixers = {
 \   'python': ['black'],
 \}
 
-let g:black_linelength = 88
 let g:ale_fix_on_save = 1
-
 
 
 
@@ -599,3 +602,22 @@ let g:vimtex_compiler_method = 'latexmk'
 " Most VimTeX mappings rely on localleader and this can be changed with the
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = ","
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Finding Files
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Search down into subfolders
+" Provides tab-completation for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" NOW WE CAN:
+" - Hit tab to :find by partial match
+" - Use * to make it fuzzy
+
+" THINGS TO CONSIDER:
+" - :b lets you autocomplete any open buffer
