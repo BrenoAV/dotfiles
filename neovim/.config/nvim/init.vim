@@ -1,6 +1,7 @@
 " Plugins
 call plug#begin()
 Plug 'sainnhe/sonokai'
+Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'honza/vim-snippets'
@@ -62,16 +63,7 @@ filetype on " detect and set the filetype option and trigger the FileType Event
 filetype plugin on " Load the plugin file for the file type, if any
 filetype indent on " Load the indent file the file type, if any
 let maplocalleader = ","
-set statusline=
-set statusline +=%1*\ %n\ %*            "buffer number
-set statusline +=%5*%{&ff}%*            "file format
-set statusline +=%3*%y%*                "file type
-set statusline +=%4*\ %<%F%*            "full path
-set statusline +=%2*%m%*                "modified flag
-set statusline +=%1*%=%5l%*             "current line
-set statusline +=%2*/%L%*               "total lines
-set statusline +=%1*%4v\ %*             "virtual column number
-set statusline +=%2*0x%04B\ %*          "character under cursor
+
 
 
 
@@ -155,16 +147,11 @@ autocmd BufRead,BufNewFile *.htm,*.html,*.css setlocal tabstop=2 shiftwidth=2 so
 " sonokai theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:airline#extensions#tabline#enabled = 1
 let g:sonokai_style = 'default'
 let g:sonokai_enable_italic = 0
 let g:disable_italic_comment = 1
 colorscheme sonokai
-
-hi User1 guifg=#eea040 guibg=#222222
-hi User2 guifg=#dd3333 guibg=#222222
-hi User3 guifg=#ff66ff guibg=#222222
-hi User4 guifg=#a0ee40 guibg=#222222
-hi User5 guifg=#eeee40 guibg=#222222
 
 
 
