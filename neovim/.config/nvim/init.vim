@@ -16,6 +16,8 @@ Plug 'lervag/vimtex', {'for': 'tex'}
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+    Plug 'nvim-tree/nvim-tree.lua'
 endif
 call plug#end()
 
@@ -56,7 +58,7 @@ set nowritebackup " no backup files
 set splitright " create the vertical splits to the right
 set splitbelow " create the horizontal splits below
 set autoread " update vim after file update from outside
-set mouse=a
+"set mouse=a
 set relativenumber
 set foldmethod=indent
 filetype on " detect and set the filetype option and trigger the FileType Event
@@ -177,8 +179,8 @@ let g:ale_fix_on_save = 1
 "------------------------------------------------------------------------------
 
 let g:coc_global_extensions = [
-\'coc-pyright', 'coc-explorer', 'coc-docker', 'coc-json', 'coc-snippets',
-\'coc-yaml', 'coc-lua', 'coc-clangd', 'coc-html', 'coc-css', 'coc-vimtex'
+\'coc-pyright', 'coc-docker', 'coc-json', 'coc-snippets', 'coc-explorer',
+\'coc-yaml', 'coc-lua', 'coc-clangd', 'coc-html', 'coc-css'
 \]
 
 " Some servers have issues with backup files, see #649.
@@ -332,12 +334,11 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-
 "------------------------------------------------------------------------------
 " coc-explorer
 "------------------------------------------------------------------------------
 
-:nnoremap <space>e :CocCommand explorer<CR>
+:nnoremap <leader>b :CocCommand explorer<CR>
 
 let g:coc_explorer_global_presets = {
 \   '.vim': {
@@ -394,7 +395,6 @@ nmap <space>el <Cmd>CocList explPresets<CR>
 
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Telescope
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -418,12 +418,6 @@ nnoremap <buffer> <silent> <localleader>X :JupyterSendCell<CR>
 nnoremap <buffer> <silent> <localleader>E :JupyterSendRange<CR>
 nmap     <buffer> <silent> <localleader>e <Plug>JupyterRunTextObj
 vmap     <buffer> <silent> <localleader>e <Plug>JupyterRunVisual
-
-" Debugging maps
-nnoremap <buffer> <silent> <localleader>b :PythonSetBreak<CR>
-
-
-autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 expandtab
 
 
 
@@ -608,3 +602,32 @@ set wildmenu
 
 " THINGS TO CONSIDER:
 " - :b lets you autocomplete any open buffer
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" File Browsing
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Tweaks for Browsing
+let g:netrw_banner = 0 "disable annoying banner
+let g:netrw_browse_split = 4 " open in prior window
+let g:netrw_altv=1 " open splits to the right
+let g:netrw_liststyle=3 " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\*'
+
+
+" NOW WE CAN:
+" - :edit a folder to open a file browser
+" - <CR>/v/t to open in a h-split/v-split/tab
+" - check |netrw-browse-maps| for more mappings
+
+
+"""""""""""""""
+" Vim Sessions
+"""""""""""""""
+
+" Shortcuts to execute session saves and restore
+let g:session_dir = '~/vim-sessions'
+exec 'nnoremap <Leader>ss :mks! ' . g:session_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <Leader>sr :so ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
