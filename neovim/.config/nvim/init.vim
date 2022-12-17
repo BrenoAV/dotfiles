@@ -16,8 +16,6 @@ Plug 'lervag/vimtex', {'for': 'tex'}
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
-    Plug 'nvim-tree/nvim-tree.lua'
 endif
 call plug#end()
 
@@ -65,8 +63,6 @@ filetype on " detect and set the filetype option and trigger the FileType Event
 filetype plugin on " Load the plugin file for the file type, if any
 filetype indent on " Load the indent file the file type, if any
 let maplocalleader = ","
-
-
 
 
 
@@ -145,12 +141,22 @@ autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.htm,*.html,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline theme
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'sonokai'
+
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " sonokai theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:airline#extensions#tabline#enabled = 1
-let g:sonokai_style = 'default'
+let g:sonokai_style = 'andromeda'
 let g:sonokai_enable_italic = 0
 let g:disable_italic_comment = 1
 colorscheme sonokai
