@@ -1,7 +1,7 @@
 " Plugins
 call plug#begin()
-Plug 'sainnhe/sonokai'
 Plug 'vim-airline/vim-airline'
+Plug 'arcticicestudio/nord-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'honza/vim-snippets'
@@ -10,6 +10,7 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
 Plug 'preservim/vim-pencil'
+Plug 'jupyter-vim/jupyter-vim'
 
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
@@ -145,18 +146,14 @@ autocmd BufRead,BufNewFile *.htm,*.html,*.css setlocal tabstop=2 shiftwidth=2 so
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'sonokai'
 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" sonokai theme
+" gruvbox theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:sonokai_style = 'espresso'
-let g:sonokai_enable_italic = 0
-let g:disable_italic_comment = 1
-colorscheme sonokai
+colorscheme nord
 
 
 
@@ -170,7 +167,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['black'],
+\ 'python': 'black'
 \}
 
 let g:ale_fix_on_save = 1
@@ -597,3 +594,21 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\*'
 let g:session_dir = '~/vim-sessions'
 exec 'nnoremap <Leader>ss :mks! ' . g:session_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <Leader>sr :so ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
+
+
+"
+" Jupyter-Vim
+"
+
+" Run current file
+nnoremap <buffer> <silent> <localleader>R :JupyterRunFile<CR>
+nnoremap <buffer> <silent> <localleader>I :PythonImportThisFile<CR>
+
+" Change to directory of current file
+nnoremap <buffer> <silent> <localleader>d :JupyterCd %:p:h<CR>
+
+" Send a selection of lines
+nnoremap <buffer> <silent> <localleader>X :JupyterSendCell<CR>
+nnoremap <buffer> <silent> <localleader>E :JupyterSendRange<CR>
+nmap     <buffer> <silent> <localleader>e <Plug>JupyterRunTextObj
+vmap     <buffer> <silent> <localleader>e <Plug>JupyterRunVisual
