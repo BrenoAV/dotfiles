@@ -11,7 +11,6 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
 Plug 'preservim/vim-pencil'
-Plug 'jupyter-vim/jupyter-vim'
 
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
@@ -79,34 +78,15 @@ else
     set pythonthreehome=C:\Python38
 endif
 
-" REMAPS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Moving around, tabs, windows and buffers
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Navigating between tabs
-nmap <C-l> :tabn<CR>
-nmap <C-h> :tabp<CR>
-
-
-" delete a buffer without losing the split window
-nnoremap <C-x> :bp\|bd #<CR>
-
-
-" Move lines up and down
-nnoremap <M-Down> :m .+1<CR>==
-nnoremap <M-Up> :m .-2<CR>==
-inoremap <M-Down> <Esc>:m .+1<CR>==gi
-inoremap <M-Up> <Esc>:m .-2<CR>==gi
-vnoremap <M-Down> :m '>+1<CR>gv=gv
-vnoremap <M-Up> :m '<-2<CR>gv=gv
-
-" Create a tab
-nmap tn :tabe<CR>
-
-" navigate between Buffers
-nmap ty :bn<CR>
-nmap tr :bp<CR>
-
-" Delete a buffer
-nmap td :bd<CR>
+" Resize splits
+map + <c-w>-
+map - <c-w>+
+map > <c-w><
+map < <c-w>>
 
 " Create Splits
 nmap th :split<CR>
@@ -116,8 +96,34 @@ nmap tv :vsplit<CR>
 nmap th :split<CR>
 nmap tv :vsplit<CR>
 
-" Close all splits but this one
+" Create a tab
+nmap tn :tabe<CR>
+
+" Navigating between tabs
+nmap <C-l> :tabn<CR>
+nmap <C-h> :tabp<CR>
+
+" navigate between Buffers
+nmap ty :bn<CR>
+nmap tr :bp<CR>
+
+" Close the current buffer
+nmap td :bd<CR>
+
+" delete a buffer without losing the split window
+nnoremap <C-x> :bp\|bd #<CR>
+
+" Close all buffers but this one
 noremap <leader>bd :%bd\|e#\|bd#<cr>\|'"
+
+" Move lines up and down
+nnoremap <M-Down> :m .+1<CR>==
+nnoremap <M-Up> :m .-2<CR>==
+inoremap <M-Down> <Esc>:m .+1<CR>==gi
+inoremap <M-Up> <Esc>:m .-2<CR>==gi
+vnoremap <M-Down> :m '>+1<CR>gv=gv
+vnoremap <M-Up> :m '<-2<CR>gv=gv
+
 
 " AUTOCMD
 function! HighlightWordUnderCursor()
@@ -600,21 +606,3 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\*'
 let g:session_dir = '~/vim-sessions'
 exec 'nnoremap <Leader>ss :mks! ' . g:session_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <Leader>sr :so ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
-
-
-"
-" Jupyter-Vim
-"
-
-" Run current file
-nnoremap <buffer> <silent> <localleader>R :JupyterRunFile<CR>
-nnoremap <buffer> <silent> <localleader>I :PythonImportThisFile<CR>
-
-" Change to directory of current file
-nnoremap <buffer> <silent> <localleader>d :JupyterCd %:p:h<CR>
-
-" Send a selection of lines
-nnoremap <buffer> <silent> <localleader>X :JupyterSendCell<CR>
-nnoremap <buffer> <silent> <localleader>E :JupyterSendRange<CR>
-nmap     <buffer> <silent> <localleader>e <Plug>JupyterRunTextObj
-vmap     <buffer> <silent> <localleader>e <Plug>JupyterRunVisual
