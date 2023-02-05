@@ -1,17 +1,24 @@
 " Plugins
 call plug#begin()
-Plug 'tpope/vim-surround' " Surrounding ysw)
-Plug 'vim-airline/vim-airline' " Status bar
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sainnhe/sonokai'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
+Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
-Plug 'preservim/nerdtree' " NerdTree
+Plug 'preservim/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
+Plug 'preservim/vim-pencil'
+Plug 'jupyter-vim/jupyter-vim'
+Plug 'tpope/vim-surround' " Surrounding ysw)
 Plug 'preservim/tagbar' " Tagbar for code navigation
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy find
-Plug 'junegunn/fzf.vim'
+
+if (has("nvim"))
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+endif
 call plug#end()
 
 
@@ -78,6 +85,12 @@ endif
 " Moving around, tabs, windows and buffers
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Resize splits
+map + <c-w>-
+map - <c-w>+
+map > <c-w><
+map < <c-w>>
+
 " Create Splits
 nmap th :split<CR>
 nmap tv :vsplit<CR>
@@ -126,6 +139,13 @@ endfunction
 
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 
+augroup markdownSpell
+    autocmd!
+    autocmd FileType markdown setlocal spell spelllang=en_us
+    autocmd BufRead,BufNewFile *.md setlocal spell
+augroup END
+
+
 autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.htm,*.html,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
@@ -152,21 +172,6 @@ colorscheme sonokai
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree theme
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <F3> :NERDTreeToggle<CR>
-
-
-nmap <F8> :TagbarToggle<CR>
-
-
-" Start NERDTree and leave the cursor in it.
-autocmd VimEnter * NERDTree
-
-
 "------------------------------------------------------------------------------
 " ALE -------------------------------------------------------------------------
 "------------------------------------------------------------------------------
@@ -189,7 +194,7 @@ let g:ale_fix_on_save = 1
 "------------------------------------------------------------------------------
 
 let g:coc_global_extensions = [
-\'coc-pyright', 'coc-docker', 'coc-json', 'coc-snippets',
+\'coc-pyright', 'coc-docker', 'coc-json', 'coc-snippets', 'coc-explorer',
 \'coc-yaml', 'coc-lua', 'coc-clangd', 'coc-html', 'coc-css'
 \]
 
@@ -344,14 +349,223 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
+"------------------------------------------------------------------------------
+" coc-explorer
+"------------------------------------------------------------------------------
+
+:nnoremap <leader>b :CocCommand explorer<CR>
+
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\     'root-uri': '~/.vim',
+\   },
+\   'cocConfig': {
+\      'root-uri': '~/.config/coc',
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'tab:$': {
+\     'position': 'tab:$',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingTop': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeftside': {
+\     'position': 'floating',
+\     'floating-position': 'left-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRightside': {
+\     'position': 'floating',
+\     'floating-position': 'right-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'simplify': {
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   },
+\   'buffer': {
+\     'sources': [{'name': 'buffer', 'expand': v:true}]
+\   },
+\ }
+
+" Use preset argument to open it
+nmap <space>ed <Cmd>CocCommand explorer --preset .vim<CR>
+nmap <space>ef <Cmd>CocCommand explorer --preset floating<CR>
+nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
+nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
+
+" List all presets
+nmap <space>el <Cmd>CocList explPresets<CR>
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Telescope
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if (has("nvim"))
+    nnoremap <leader>ff <cmd>Telescope find_files<cr>
+    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+    nnoremap <leader>fb <cmd>Telescope buffers<cr>
+    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+endif
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" tagbar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <F8> :TagbarToggle<CR>
+
+
+
+"------------------------------------------------------------------------------
+" pencil
+"------------------------------------------------------------------------------
+
+set nocompatible
+
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd,text call pencil#init()
+augroup END
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" markdown-preview-nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" set to 1, nvim will open the preview window after entering the markdown buffer
+" default: 0
+let g:mkdp_auto_start = 0
+
+" set to 1, the nvim will auto close current preview window when change
+" from markdown buffer to another buffer
+" default: 1
+let g:mkdp_auto_close = 1
+
+" set to 1, the vim will refresh markdown when save the buffer or
+" leave from insert mode, default 0 is auto refresh markdown as you edit or
+" move the cursor
+" default: 0
+let g:mkdp_refresh_slow = 0
+
+" set to 1, the MarkdownPreview command can be use for all files,
+" by default it can be use in markdown file
+" default: 0
+let g:mkdp_command_for_global = 0
+
+" set to 1, preview server available to others in your network
+" by default, the server listens on localhost (127.0.0.1)
+" default: 0
+let g:mkdp_open_to_the_world = 0
+
+" use custom IP to open preview page
+" useful when you work in remote vim and preview on local browser
+" more detail see: https://github.com/iamcco/markdown-preview.nvim/pull/9
+" default empty
+let g:mkdp_open_ip = ''
+
+" specify browser to open preview page
+" for path with space
+" valid: `/path/with\ space/xxx`
+" invalid: `/path/with\\ space/xxx`
+" default: ''
+let g:mkdp_browser = ''
+
+" set to 1, echo preview page url in command line when open preview page
+" default is 0
+let g:mkdp_echo_preview_url = 0
+
+" a custom vim function name to open preview page
+" this function will receive url as param
+" default is empty
+let g:mkdp_browserfunc = ''
+
+" options for markdown render
+" mkit: markdown-it options for render
+" katex: katex options for math
+" uml: markdown-it-plantuml options
+" maid: mermaid options
+" disable_sync_scroll: if disable sync scroll, default 0
+" sync_scroll_type: 'middle', 'top' or 'relative', default value is 'middle'
+"   middle: mean the cursor position alway show at the middle of the preview page
+"   top: mean the vim top viewport alway show at the top of the preview page
+"   relative: mean the cursor position alway show at the relative positon of the preview page
+" hide_yaml_meta: if hide yaml metadata, default is 1
+" sequence_diagrams: js-sequence-diagrams options
+" content_editable: if enable content editable for preview page, default: v:false
+" disable_filename: if disable filename header for preview page, default: 0
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0,
+    \ 'toc': {}
+    \ }
+
+" use a custom markdown style must be absolute path
+" like '/Users/username/markdown.css' or expand('~/markdown.css')
+let g:mkdp_markdown_css = ''
+
+" use a custom highlight style must absolute path
+" like '/Users/username/highlight.css' or expand('~/highlight.css')
+let g:mkdp_highlight_css = ''
+
+" use a custom port to start server or empty for random
+let g:mkdp_port = ''
+
+" preview page title
+" ${name} will be replace with the file name
+let g:mkdp_page_title = '「${name}」'
+
+" recognized filetypes
+" these filetypes will have MarkdownPreview... commands
+let g:mkdp_filetypes = ['markdown']
+
+" set default theme (dark or light)
+" By default the theme is define according to the preferences of the system
+let g:mkdp_theme = 'light'
+
+function OpenMarkdownPreview (url)
+	execute "silent ! firefox --new-window " . a:url
+endfunction
+
+let g:mkdp_browserfunc = 'OpenMarkdownPreview'
+
+nmap <C-n> <Plug>MarkdownPreview
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" fzf vim
+" Vim-Markdown
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nnoremap <C-p> :Files<Cr>
-let g:fzf_layout = { 'down': '40%' }
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+set conceallevel=2
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
+let g:vim_markdown_conceal_code_blocks = 0
 
 
 
@@ -402,3 +616,24 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\*'
 let g:session_dir = '~/vim-sessions'
 exec 'nnoremap <Leader>ss :mks! ' . g:session_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <Leader>sr :so ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" jupyter-vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Run current file
+nnoremap <buffer> <silent> <localleader>R :JupyterRunFile<CR>
+nnoremap <buffer> <silent> <localleader>I :PythonImportThisFile<CR>
+
+" Change to directory of current file
+nnoremap <buffer> <silent> <localleader>d :JupyterCd %:p:h<CR>
+
+" Send a selection of lines
+nnoremap <buffer> <silent> <localleader>X :JupyterSendCell<CR>
+nnoremap <buffer> <silent> <localleader>E :JupyterSendRange<CR>
+nmap     <buffer> <silent> <localleader>e <Plug>JupyterRunTextObj
+vmap     <buffer> <silent> <localleader>e <Plug>JupyterRunVisual
+
+" Debugging maps
+nnoremap <buffer> <silent> <localleader>b :PythonSetBreak<CR>
