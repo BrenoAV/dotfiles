@@ -1,0 +1,15 @@
+{
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "terminal.integrated.inheritEnv": true,
+    "editor.fontFamily": "'Hack NF', 'monospace', monospace",
+    "editor.fontSize": 16,
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
+    "editor.lineNumbers": "relative",
+    "workbench.colorTheme": "Sonokai Andromeda"
+}
