@@ -1,15 +1,52 @@
 {
-    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "terminal.integrated.inheritEnv": true,
     "editor.fontFamily": "'Hack NF', 'monospace', monospace",
-    "editor.fontSize": 16,
     "editor.formatOnSaveMode": "file",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
-    "python.linting.pylintEnabled": true,
+    "python.linting.banditEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
     "python.formatting.provider": "black",
     "editor.lineNumbers": "relative",
-    "workbench.colorTheme": "Sonokai Andromeda"
+    "workbench.colorTheme": "Sonokai Espresso",
+    "autoDocstring.docstringFormat": "numpy",
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 16,
+    "ltex.additionalRules.motherTongue": "en-US",
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k"
+            ]
+        }
+    ],
+    "markdown-preview-enhanced.previewTheme": "github-light.css",
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        80,
+        88
+    ],
+    "python.linting.flake8Args": [
+        "--max-line-length=88"
+    ],
+    "python.formatting.blackArgs": [
+        "--line-length=88"
+    ]
 }
