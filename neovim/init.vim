@@ -14,6 +14,7 @@ Plug 'preservim/vim-pencil'
 Plug 'jupyter-vim/jupyter-vim'
 Plug 'tpope/vim-surround' " Surrounding ysw)
 Plug 'preservim/tagbar' " Tagbar for code navigation
+Plug 'kkoomen/vim-doge' " Documentation <Leader>d ( :call doge#install() )
 
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
@@ -117,6 +118,9 @@ inoremap <M-Down> <Esc>:m .+1<CR>==gi
 inoremap <M-Up> <Esc>:m .-2<CR>==gi
 vnoremap <M-Down> :m '>+1<CR>gv=gv
 vnoremap <M-Up> :m '<-2<CR>gv=gv
+
+" Exec scripts
+nnoremap tp :!python %<cr>
 
 
 " AUTOCMD
@@ -526,3 +530,10 @@ nnoremap <buffer> <silent> <localleader>X :JupyterSendCell<CR>
 nnoremap <buffer> <silent> <localleader>E :JupyterSendRange<CR>
 nmap     <buffer> <silent> <localleader>e <Plug>JupyterRunTextObj
 vmap     <buffer> <silent> <localleader>e <Plug>JupyterRunVisual
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" DoGe
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:doge_doc_standard_python = 'numpy'
