@@ -9,9 +9,6 @@ Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
-Plug 'preservim/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
-Plug 'preservim/vim-pencil'
 Plug 'jupyter-vim/jupyter-vim'
 Plug 'tpope/vim-surround' " Surrounding ysw)
 Plug 'preservim/tagbar' " Tagbar for code navigation
@@ -413,51 +410,6 @@ endif
 " tagbar
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F8> :TagbarToggle<CR>
-
-
-
-"------------------------------------------------------------------------------
-" pencil
-"------------------------------------------------------------------------------
-
-set nocompatible
-
-let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd,text call pencil#init()
-augroup END
-
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" markdown-preview-nvim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" set default theme (dark or light)
-" By default the theme is define according to the preferences of the system
-let g:mkdp_theme = 'light'
-
-function OpenMarkdownPreview (url)
-	execute "silent ! firefox --new-window " . a:url
-endfunction
-
-let g:mkdp_browserfunc = 'OpenMarkdownPreview'
-
-nmap <C-n> <Plug>MarkdownPreview
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-Markdown
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set conceallevel=2
-let g:tex_conceal = ""
-let g:vim_markdown_math = 1
-let g:vim_markdown_conceal_code_blocks = 0
 
 
 
