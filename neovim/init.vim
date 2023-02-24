@@ -2,10 +2,11 @@
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sainnhe/sonokai'
+Plug 'sainnhe/gruvbox-material'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'preservim/vim-markdown'
@@ -23,9 +24,7 @@ endif
 call plug#end()
 
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+if has('termguicolors')
   set termguicolors
 endif
 
@@ -76,12 +75,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Moving around, tabs, windows and buffers
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Resize splits
-map + <c-w>-
-map - <c-w>+
-map > <c-w><
-map < <c-w>>
 
 " Create Splits
 nmap th :split<CR>
@@ -151,19 +144,22 @@ autocmd BufRead,BufNewFile *.htm,*.html,*.css setlocal tabstop=2 shiftwidth=2 so
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'sonokai'
+let g:airline_theme = 'gruvbox_material'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" sonokai theme
+" gruvbox material
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:sonokai_style = 'andromeda'
-let g:sonokai_enable_italic = 0
-let g:sonokai_disable_italic_comment = 0
-let g:sonokai_diagnostic_line_highlight = 1
-let g:sonokai_current_word = 'bold'
-colorscheme sonokai
+" Set contrast.
+" This configuration option should be placed before `colorscheme gruvbox-material`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:gruvbox_material_background = 'soft'
+" For dark version.
+set background=dark
+" For better performance
+let g:gruvbox_material_better_performance = 1
+colorscheme gruvbox-material
 
 
 
@@ -192,7 +188,7 @@ let g:ale_python_black_options = '--line-length 88'
 "------------------------------------------------------------------------------
 
 let g:coc_global_extensions = [
-\'coc-pyright', 'coc-docker', 'coc-json', 'coc-snippets', 'coc-explorer',
+\'coc-pyright', 'coc-docker', 'coc-json', 'coc-explorer',
 \'coc-yaml', 'coc-lua', 'coc-clangd', 'coc-html', 'coc-css'
 \]
 
@@ -537,3 +533,18 @@ vmap     <buffer> <silent> <localleader>e <Plug>JupyterRunVisual
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:doge_doc_standard_python = 'numpy'
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ultisnips
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
+let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
+
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
