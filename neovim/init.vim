@@ -13,6 +13,9 @@ Plug 'jupyter-vim/jupyter-vim'
 Plug 'tpope/vim-surround' " Surrounding ysw)
 Plug 'preservim/tagbar' " Tagbar for code navigation
 Plug 'kkoomen/vim-doge' " Documentation <Leader>d ( :call doge#install() )
+Plug 'preservim/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
+Plug 'preservim/vim-pencil'
 
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
@@ -500,3 +503,48 @@ let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+
+
+"------------------------------------------------------------------------------
+" pencil
+"------------------------------------------------------------------------------
+
+set nocompatible
+
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd,text call pencil#init()
+augroup END
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" markdown-preview-nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" set default theme (dark or light)
+" By default the theme is define according to the preferences of the system
+let g:mkdp_theme = 'light'
+
+function OpenMarkdownPreview (url)
+	execute "silent ! firefox --new-window " . a:url
+endfunction
+
+let g:mkdp_browserfunc = 'OpenMarkdownPreview'
+
+nmap <C-n> <Plug>MarkdownPreview
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-Markdown
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set conceallevel=2
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
+let g:vim_markdown_conceal_code_blocks = 0
