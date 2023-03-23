@@ -257,7 +257,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 " nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>rn <Plug>(coc-rename)
+nmap <F2> <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
@@ -482,6 +482,7 @@ nnoremap <buffer> <silent> <localleader>E :JupyterSendRange<CR>
 nmap     <buffer> <silent> <localleader>e <Plug>JupyterRunTextObj
 vmap     <buffer> <silent> <localleader>e <Plug>JupyterRunVisual
 
+nnoremap <buffer> <silent> <F5> :JupyterConnect<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DoGe
