@@ -12,11 +12,8 @@ Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'jupyter-vim/jupyter-vim'
 Plug 'tpope/vim-surround' " Surrounding ysw)
 Plug 'preservim/tagbar' " Tagbar for code navigation
-Plug 'kkoomen/vim-doge' " Documentation <Leader>d ( :call doge#install() )
-Plug 'preservim/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown' }
 Plug 'preservim/vim-pencil'
-Plug 'rhysd/vim-grammarous'
+Plug 'kkoomen/vim-doge' " Documentation <Leader>d ( :call doge#install() )
 Plug 'folke/todo-comments.nvim'
 
 
@@ -150,6 +147,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox_material'
 
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " gruvbox material
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -157,12 +155,13 @@ let g:airline_theme = 'gruvbox_material'
 " Set contrast.
 " This configuration option should be placed before `colorscheme gruvbox-material`.
 " Available values: 'hard', 'medium'(default), 'soft'
-let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_background = 'medium'
 " For dark version.
 set background=dark
 " For better performance
 let g:gruvbox_material_better_performance = 1
 colorscheme gruvbox-material
+
 
 
 
@@ -527,42 +526,6 @@ augroup END
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" markdown-preview-nvim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" set default theme (dark or light)
-" By default the theme is define according to the preferences of the system
-let g:mkdp_theme = 'light'
-
-function OpenMarkdownPreview (url)
-	execute "silent ! firefox --new-window " . a:url
-endfunction
-
-let g:mkdp_browserfunc = 'OpenMarkdownPreview'
-
-nmap <C-n> <Plug>MarkdownPreview
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-Markdown
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set conceallevel=2
-let g:tex_conceal = ""
-let g:vim_markdown_math = 1
-let g:vim_markdown_conceal_code_blocks = 0
-
-
-
-"
-" Vim Grammarous
-"
-
-let g:grammarous#jar_url = 'https://www.languagetool.org/download/LanguageTool-5.9.zip'
-
-
 
 "
 " todo-comments
@@ -614,7 +577,7 @@ lua << EOF
 			colors = {
 				error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
 				warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
-				info = { "DiagnosticInfo", "#2563EB" },
+				info = { "DiagnosticInfo", "#E07B39" },
 				hint = { "DiagnosticHint", "#10B981" },
 				default = { "Identifier", "#7C3AED" },
 				test = { "Identifier", "#FF00FF" }
