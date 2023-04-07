@@ -3,24 +3,22 @@
     "editor.fontFamily": "'Hack NF', 'monospace', monospace",
     "editor.formatOnSaveMode": "file",
     "editor.formatOnSave": true,
+    "python.linting.enabled": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
     "python.linting.banditEnabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true,
+    "autoDocstring.docstringFormat": "numpy",
     "python.formatting.provider": "black",
     "editor.lineNumbers": "relative",
-    "workbench.colorTheme": "Sonokai Espresso",
-    "autoDocstring.docstringFormat": "numpy",
     "editor.fontSize": 14,
-    "terminal.integrated.fontSize": 16,
-    "ltex.additionalRules.motherTongue": "en-US",
+    "terminal.integrated.fontSize": 14,
     "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
-                "j"
+                "j",
             ],
             "after": [
                 "g",
@@ -29,7 +27,25 @@
         },
         {
             "before": [
+                "down",
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "k",
+            ],
+            "after": [
+                "g",
                 "k"
+            ]
+        },
+        {
+            "before": [
+                "up"
             ],
             "after": [
                 "g",
@@ -37,10 +53,8 @@
             ]
         }
     ],
-    "markdown-preview-enhanced.previewTheme": "github-light.css",
     "editor.minimap.enabled": false,
     "editor.rulers": [
-        80,
         88
     ],
     "python.linting.flake8Args": [

@@ -1,21 +1,28 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
     {
-        "key": "shift+alt+e",
+        "key": "\\ e",
         "command": "workbench.view.explorer",
         "when": "viewContainer.workbench.view.explorer.enabled"
     },
     {
-        "key": "ctrl+shift+e",
-        "command": "-workbench.view.explorer",
-        "when": "viewContainer.workbench.view.explorer.enabled"
-    },
-    {
-        "key": "shift+alt+b",
+        "key": "\\ p",
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
-        "key": "ctrl+b",
-        "command": "-workbench.action.toggleSidebarVisibility"
-    }
-]
+        "key": "\\ f",
+        "command": "workbench.view.search"
+    },
+    {
+        "key": "\\ g",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "\\ t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "\\ z",
+        "command": "workbench.action.toggleZenMode"
+    },
+] 	
