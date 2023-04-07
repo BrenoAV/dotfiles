@@ -3,26 +3,31 @@
     {
         "key": "\\ e",
         "command": "workbench.view.explorer",
-        "when": "viewContainer.workbench.view.explorer.enabled"
+        "when": "viewContainer.workbench.view.explorer.enabled && vim.mode == 'Normal'"
     },
     {
         "key": "\\ p",
-        "command": "workbench.action.toggleSidebarVisibility"
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "\\ f",
-        "command": "workbench.view.search"
+        "command": "workbench.view.search",
+        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "\\ g",
-        "command": "workbench.view.scm"
+        "command": "workbench.view.scm",
+        "when": "vim.mode == 'Normal'
     },
     {
         "key": "\\ t",
-        "command": "workbench.action.terminal.toggleTerminal"
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "\\ z",
-        "command": "workbench.action.toggleZenMode"
+        "command": "workbench.action.toggleZenMode",
+        "when": "vim.mode == 'Normal'"
     },
 ] 	
