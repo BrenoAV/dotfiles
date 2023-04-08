@@ -12,7 +12,7 @@
     "autoDocstring.docstringFormat": "numpy",
     "python.formatting.provider": "black",
     "editor.lineNumbers": "relative",
-    "editor.fontSize": 14,
+    "editor.fontSize": 16,
     "terminal.integrated.fontSize": 14,
     "vim.useSystemClipboard": true,
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -62,5 +62,26 @@
     ],
     "python.formatting.blackArgs": [
         "--line-length=88"
-    ]
+    ],
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "text",
+        "foreground": "red",
+        "background": "white",
+        "opacity": 50,
+        "iconColour": "blue"
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "type": "line"
+        },
+        "FIXME": {
+            "foreground": "black",
+            "iconColour": "yellow",
+            "gutterIcon": true
+        }
+    }
 }

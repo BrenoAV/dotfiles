@@ -18,7 +18,7 @@
     {
         "key": "\\ g",
         "command": "workbench.view.scm",
-        "when": "vim.mode == 'Normal'
+        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "\\ t",
@@ -30,4 +30,9 @@
         "command": "workbench.action.toggleZenMode",
         "when": "vim.mode == 'Normal'"
     },
-] 	
+    {
+        "key": "\\ w",
+        "command": "workbench.view.extension.todo-tree-container",
+        "when": "vim.mode == 'Normal'"
+    },
+]
