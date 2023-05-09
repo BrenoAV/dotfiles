@@ -1,37 +1,37 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
     {
-        "key": "\\ e",
+        "key": "alt+shift+e",
         "command": "workbench.view.explorer",
         "when": "viewContainer.workbench.view.explorer.enabled && vim.mode == 'Normal'"
     },
     {
-        "key": "\\ p",
+        "key": "alt+shift+p",
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "vim.mode == 'Normal'"
     },
     {
-        "key": "\\ f",
+        "key": "alt+shift+f",
         "command": "workbench.view.search",
         "when": "vim.mode == 'Normal'"
     },
     {
-        "key": "\\ g",
+        "key": "alt+shift+g",
         "command": "workbench.view.scm",
         "when": "vim.mode == 'Normal'"
     },
     {
-        "key": "\\ t",
+        "key": "alt+shift+t",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "vim.mode == 'Normal'"
     },
     {
-        "key": "\\ z",
+        "key": "alt+shift+z",
         "command": "workbench.action.toggleZenMode",
         "when": "vim.mode == 'Normal'"
     },
     {
-        "key": "\\ w",
+        "key": "alt+shift+w",
         "command": "workbench.view.extension.todo-tree-container",
         "when": "vim.mode == 'Normal'"
     },
