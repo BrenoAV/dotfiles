@@ -4,17 +4,19 @@
     "editor.formatOnSaveMode": "file",
     "editor.formatOnSave": true,
     "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
-    "python.linting.banditEnabled": true,
-    "python.linting.flake8Enabled": true,
     "autoDocstring.docstringFormat": "numpy",
     "python.formatting.provider": "black",
     "editor.lineNumbers": "relative",
     "editor.fontSize": 16,
     "terminal.integrated.fontSize": 14,
     "vim.useSystemClipboard": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -51,7 +53,15 @@
                 "g",
                 "k"
             ]
-        }
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
     ],
     "editor.minimap.enabled": false,
     "editor.rulers": [
@@ -64,24 +74,5 @@
         "--line-length=88"
     ],
     "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Gruvbox Material Dark",
-    "todo-tree.highlights.defaultHighlight": {
-        "icon": "alert",
-        "type": "text",
-        "foreground": "red",
-        "background": "white",
-        "opacity": 50,
-        "iconColour": "blue"
-    },
-    "todo-tree.highlights.customHighlight": {
-        "TODO": {
-            "icon": "check",
-            "type": "line"
-        },
-        "FIXME": {
-            "foreground": "black",
-            "iconColour": "yellow",
-            "gutterIcon": true
-        }
-    }
+    "workbench.colorTheme": "Gruvbox Material Dark"
 }
