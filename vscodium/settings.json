@@ -1,18 +1,30 @@
 {
     "terminal.integrated.inheritEnv": true,
-    "editor.fontFamily": "'Hack NF', 'monospace', monospace",
+    "editor.fontFamily": "'Hack Nerd Font', 'monospace', monospace",
     "editor.formatOnSaveMode": "file",
-    "editor.formatOnSave": true,
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
+    "editor.lineNumbers": "relative",
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        88
+    ],
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
+    "python.analysis.typeCheckingMode": "strict",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+    },
+    "black-formatter.args": [
+        "--line-length=88"
+    ],
     "autoDocstring.docstringFormat": "numpy",
-    "python.formatting.provider": "black",
-    "editor.lineNumbers": "relative",
-    "editor.fontSize": 16,
-    "terminal.integrated.fontSize": 14,
+    "window.menuBarVisibility": "toggle",
+    "workbench.activityBar.visible": false,
+    "ltex.additionalRules.enablePickyRules": true,
+    // VIM CONFIGURATION
     "vim.useSystemClipboard": true,
     "vim.incsearch": true,
     "vim.useCtrlKeys": true,
@@ -63,16 +75,4 @@
             ]
         },
     ],
-    "editor.minimap.enabled": false,
-    "editor.rulers": [
-        88
-    ],
-    "python.linting.flake8Args": [
-        "--max-line-length=88"
-    ],
-    "python.formatting.blackArgs": [
-        "--line-length=88"
-    ],
-    "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Gruvbox Material Dark"
 }
