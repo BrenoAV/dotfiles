@@ -1,6 +1,6 @@
 {
     "terminal.integrated.inheritEnv": true,
-    "editor.fontFamily": "'Hack Nerd Font', 'monospace', monospace",
+    "editor.fontFamily": "'Hack Nerd Font Mono', 'monospace', monospace",
     "editor.formatOnSaveMode": "file",
     "editor.lineNumbers": "relative",
     "editor.fontSize": 14,
@@ -75,4 +75,5 @@
             ]
         },
     ],
+    "workbench.colorTheme": "Gruvbox Material Dark",
 }

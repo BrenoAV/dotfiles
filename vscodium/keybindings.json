@@ -3,36 +3,60 @@
     {
         "key": "alt+shift+e",
         "command": "workbench.view.explorer",
-        "when": "viewContainer.workbench.view.explorer.enabled && vim.mode == 'Normal'"
+        "when": "viewContainer.workbench.view.explorer.enabled"
     },
     {
         "key": "alt+shift+p",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "alt+shift+f",
         "command": "workbench.view.search",
-        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "alt+shift+g",
         "command": "workbench.view.scm",
-        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "alt+shift+t",
         "command": "workbench.action.terminal.toggleTerminal",
-        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "alt+shift+z",
         "command": "workbench.action.toggleZenMode",
-        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "alt+shift+w",
         "command": "workbench.view.extension.todo-tree-container",
-        "when": "vim.mode == 'Normal'"
     },
+    {
+        "key": "f",
+        "command": "explorer.newFile",
+        "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": "d",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": "x",
+        "command": "deleteFile",
+        "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "enter",
+        "command": "list.select",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "o",
+        "command": "list.select",
+        "when": "listFocus && !inputFocus"
+    }
 ]
