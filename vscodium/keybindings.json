@@ -21,6 +21,17 @@
         "key": "alt+shift+t",
         "command": "workbench.action.terminal.toggleTerminal",
     },
+    // Toggle between terminal and editor focus
+    {
+        "key":     "ctrl+`",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key":     "ctrl+`",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when":    "terminalFocus"
+    }
+
     {
         "key": "alt+shift+z",
         "command": "workbench.action.toggleZenMode",

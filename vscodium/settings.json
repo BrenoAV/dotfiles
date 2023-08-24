@@ -1,4 +1,5 @@
 {
+    "window.zoomLevel": 0.5,
     "terminal.integrated.inheritEnv": true,
     "editor.fontFamily": "'Hack Nerd Font Mono', 'monospace', monospace",
     "editor.formatOnSaveMode": "file",
@@ -12,7 +13,8 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
-    "python.analysis.typeCheckingMode": "strict",
+    // PYTHON
+    "python.analysis.typeCheckingMode": "basic",
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
@@ -21,8 +23,7 @@
         "--line-length=88"
     ],
     "autoDocstring.docstringFormat": "numpy",
-    "window.menuBarVisibility": "toggle",
-    "workbench.activityBar.visible": false,
+    // C
     "ltex.additionalRules.enablePickyRules": true,
     // VIM CONFIGURATION
     "vim.useSystemClipboard": true,
@@ -75,5 +76,7 @@
             ]
         },
     ],
-    "workbench.colorTheme": "Gruvbox Material Dark",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorCustomizations": {},
+    "window.menuBarVisibility": "toggle",
 }
