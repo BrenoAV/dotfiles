@@ -10,6 +10,7 @@
     "editor.rulers": [
         88
     ],
+    "editor.cursorSurroundingLines": 8,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
@@ -76,7 +77,17 @@
             ]
         },
     ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        }
+    ],
     "workbench.iconTheme": "vscode-icons",
-    "workbench.colorCustomizations": {},
     "window.menuBarVisibility": "toggle",
 }
