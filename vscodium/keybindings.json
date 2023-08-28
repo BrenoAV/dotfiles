@@ -69,5 +69,13 @@
         "key": "o",
         "command": "list.select",
         "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+k t",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "snippet": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+        }
     }
 ]
