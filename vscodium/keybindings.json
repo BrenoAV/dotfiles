@@ -77,5 +77,15 @@
         "args": {
             "snippet": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
         }
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.previousEditor",
+        "when": "inputFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.nextEditor",
+        "when": "inputFocus && vim.mode == 'Normal'"
     }
 ]
