@@ -13,21 +13,36 @@
         "key": "alt+shift+f",
         "command": "workbench.view.search",
     },
+    // Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "alt+shift+e",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "key": "alt+ctrl+p",
+        "command": "workbench.action.toggleSidebarVisibility",
+    },
+    {
+        "key": "alt+shift+f",
+        "command": "workbench.view.search",
+    },
     {
         "key": "alt+shift+g",
         "command": "workbench.view.scm",
     },
     {
-        "key": "alt+shift+t",
+        "key": "alt+shift+enter",
         "command": "workbench.action.terminal.toggleTerminal",
     },
     // Toggle between terminal and editor focus
     {
-        "key":     "ctrl+`",
+        "key":     "alt+shift+t",
         "command": "workbench.action.terminal.focus"
     },
     {
-        "key":     "ctrl+`",
+        "key":     "alt+shift+t",
         "command": "workbench.action.focusActiveEditorGroup",
         "when":    "terminalFocus"
     }
