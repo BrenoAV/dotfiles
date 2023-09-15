@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
     {
         "key": "alt+shift+e",
@@ -13,8 +12,6 @@
         "key": "alt+shift+f",
         "command": "workbench.view.search",
     },
-    // Place your key bindings in this file to override the defaultsauto[]
-[
     {
         "key": "alt+shift+e",
         "command": "workbench.view.explorer",
@@ -45,8 +42,7 @@
         "key":     "alt+shift+t",
         "command": "workbench.action.focusActiveEditorGroup",
         "when":    "terminalFocus"
-    }
-
+    },
     {
         "key": "alt+shift+z",
         "command": "workbench.action.toggleZenMode",
