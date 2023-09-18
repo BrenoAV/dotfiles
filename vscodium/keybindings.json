@@ -33,14 +33,15 @@
         "key": "alt+shift+enter",
         "command": "workbench.action.terminal.toggleTerminal",
     },
+    // Toggle between terminal and editor focus
     {
-        "key":     "alt+shift+t",
+        "key": "alt+shift+t",
         "command": "workbench.action.terminal.focus"
     },
     {
-        "key":     "alt+shift+t",
+        "key": "alt+shift+t",
         "command": "workbench.action.focusActiveEditorGroup",
-        "when":    "terminalFocus"
+        "when": "terminalFocus"
     },
     {
         "key": "alt+shift+z",
@@ -89,13 +90,17 @@
         }
     },
     {
-        "key": "ctrl+h",
+        "key": "ctrl+shift+h",
         "command": "workbench.action.previousEditor",
         "when": "inputFocus && vim.mode == 'Normal'"
     },
     {
-        "key": "ctrl+l",
+        "key": "ctrl+shift+l",
         "command": "workbench.action.nextEditor",
         "when": "inputFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+enter",
+        "command": "workbench.action.quickOpen",
     }
 ]
