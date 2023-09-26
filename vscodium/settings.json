@@ -1,6 +1,13 @@
 {
+    // LTEX Extension
+    "ltex.languageToolHttpServerUri": "",
+    "ltex.languageToolOrg.username": "",
+    "ltex.languageToolOrg.apiKey": "",
+    "ltex.additionalRules.enablePickyRules": true,
+    // THEMES AND CONFIGURATION
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Gruvbox Material Dark",
     "window.zoomLevel": 0.5,
-    "terminal.integrated.inheritEnv": true,
     "editor.fontFamily": "'Hack Nerd Font Mono', 'monospace', monospace",
     "editor.formatOnSaveMode": "file",
     "editor.lineNumbers": "relative",
@@ -8,25 +15,23 @@
     "terminal.integrated.fontSize": 14,
     "editor.minimap.enabled": false,
     "editor.rulers": [
-        88
+        80, 88
     ],
     "editor.cursorSurroundingLines": 8,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": true
+        "source.organizeImports": true,
+        "editor.formatOnSave": true
     },
     // PYTHON
     "python.analysis.typeCheckingMode": "basic",
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
-        "editor.formatOnSave": true,
     },
     "black-formatter.args": [
         "--line-length=88"
     ],
     "autoDocstring.docstringFormat": "numpy",
-    // C
-    "ltex.additionalRules.enablePickyRules": true,
-    // VIM CONFIGURATION
+    // VIM Extension
     "vim.useSystemClipboard": true,
     "vim.incsearch": true,
     "vim.useCtrlKeys": true,
@@ -88,6 +93,28 @@
             ]
         }
     ],
-    "workbench.iconTheme": "vscode-icons",
-    "window.menuBarVisibility": "toggle",
+    // TODO Tree Extension
+    "todo-tree.general.tags": ["TODO", "FIXME", "REMOVEME"],
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "checklist",
+            "type": "line",
+            "background": "#0ec5cb",
+            "foreground": "#ffffff",
+            "gutterIcon": true
+        },
+        "FIXME": {
+            "icon": "tools",
+            "foreground": "#e2820c",
+            "iconColour": "#e2f108",
+            "gutterIcon": true
+        },
+        "REMOVEME": {
+            "icon": "x-circle-fill",
+            "foreground": "#e20c0c",
+            "iconColour": "#ffffff",
+            "gutterIcon": true
+        }
+    },
+    "todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
 }
