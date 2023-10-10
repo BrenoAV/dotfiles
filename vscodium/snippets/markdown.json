@@ -1,0 +1,22 @@
+{
+	"Add paper important questions" :{
+		"prefix": "paper",
+		"body": ["- **Title:** $1",
+				"- **Journal:** $2"
+				"- **Publication Date:** $3"
+				"- **DOI:** $4",
+				"---",
+				 "**1. What did author try to accomplish?**", 
+				 "",
+				 "**2. What were the key elements of the approach?**",
+				 "",
+				 "**3. What can be improved?**",
+				 "",
+				 "**4. What can be used for yourself?**",
+				 "",
+				 "**5. What other reference to do you want to follow?**",
+				""
+		],
+		"description": "Add paper important questions to be answered when after read the paper"
+	}
+}
