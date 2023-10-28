@@ -18,5 +18,15 @@
 				""
 		],
 		"description": "Add paper important questions to be answered when after read the paper"
+	},
+	"Add footer github repository":{
+		"prefix": "mit footer",
+		"body":["<p align='center'>", 
+		"<strong>MIT License</strong><br>", 
+		"This project is licensed under the MIT License - see the <a href=$1>LICENSE</a> file for details.<br><br>
+  &copy; 2023 BrenoAV",
+		"&copy; 2023 BrenoAV",
+		"</p>"
+	]
 	}
 }
