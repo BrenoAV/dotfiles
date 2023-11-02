@@ -4,33 +4,43 @@
     "ltex.languageToolOrg.username": "",
     "ltex.languageToolOrg.apiKey": "",
     "ltex.additionalRules.enablePickyRules": true,
-    // THEMES AND CONFIGURATION
-    "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Gruvbox Material Dark",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
     "window.zoomLevel": 0.5,
     "editor.fontFamily": "'Hack Nerd Font Mono', 'monospace', monospace",
+    "terminal.integrated.inheritEnv": true,
+    "window.menuBarVisibility": "toggle",
+    "workbench.activityBar.location": "hidden",
     "editor.formatOnSaveMode": "file",
     "editor.lineNumbers": "relative",
     "editor.fontSize": 14,
     "terminal.integrated.fontSize": 14,
     "editor.minimap.enabled": false,
     "editor.rulers": [
-        80, 88
+        80,
+        88
     ],
     "editor.cursorSurroundingLines": 8,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true,
-        "editor.formatOnSave": true
     },
     // PYTHON
-    "python.analysis.typeCheckingMode": "basic",
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
     },
+    "python.experiments.optInto": [
+        "pythonREPLSmartSend"
+    ],
     "black-formatter.args": [
         "--line-length=88"
     ],
-    "autoDocstring.docstringFormat": "numpy",
+    "flake8.args": [
+        "--max-line-length=88"
+    ],
+    "pylint.args": [
+        "--max-line-length=88"
+    ],
+    "autoDocstring.docstringFormat": "google",
     // VIM Extension
     "vim.useSystemClipboard": true,
     "vim.incsearch": true,
@@ -39,7 +49,7 @@
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
-                "j",
+                "j"
             ],
             "after": [
                 "g",
@@ -48,7 +58,7 @@
         },
         {
             "before": [
-                "down",
+                "down"
             ],
             "after": [
                 "g",
@@ -57,7 +67,7 @@
         },
         {
             "before": [
-                "k",
+                "k"
             ],
             "after": [
                 "g",
@@ -94,12 +104,16 @@
         }
     ],
     // TODO Tree Extension
-    "todo-tree.general.tags": ["TODO", "FIXME", "REMOVEME"],
+    "todo-tree.general.tags": [
+        "TODO",
+        "FIXME",
+        "REMOVEME"
+    ],
     "todo-tree.highlights.customHighlight": {
         "TODO": {
             "icon": "checklist",
             "type": "line",
-            "background": "#0ec5cb",
+            "background": "#174b4d",
             "foreground": "#ffffff",
             "gutterIcon": true
         },
@@ -116,5 +130,5 @@
             "gutterIcon": true
         }
     },
-    "todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+    "todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])"
 }
