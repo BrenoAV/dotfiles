@@ -1,41 +1,31 @@
 {
-    // LTEX Extension
-    "ltex.languageToolHttpServerUri": "",
-    "ltex.languageToolOrg.username": "",
-    "ltex.languageToolOrg.apiKey": "",
-    "ltex.additionalRules.enablePickyRules": true,
-    "workbench.colorTheme": "Gruvbox Dark Hard",
     "window.zoomLevel": 0.5,
-    "editor.fontFamily": "'Hack Nerd Font Mono', 'monospace', monospace",
     "terminal.integrated.inheritEnv": true,
     "window.menuBarVisibility": "toggle",
     "workbench.activityBar.location": "hidden",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'monospace', monospace",
     "editor.formatOnSaveMode": "file",
     "editor.lineNumbers": "relative",
     "editor.fontSize": 14,
     "terminal.integrated.fontSize": 14,
     "editor.minimap.enabled": false,
     "editor.rulers": [
-        80,
         88
     ],
     "editor.cursorSurroundingLines": 8,
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true,
-    },
     // PYTHON
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+        },
         "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.black-formatter",
     },
     "python.experiments.optInto": [
         "pythonREPLSmartSend"
     ],
     "black-formatter.args": [
         "--line-length=88"
-    ],
-    "flake8.args": [
-        "--max-line-length=88"
     ],
     "pylint.args": [
         "--max-line-length=88"
@@ -130,5 +120,9 @@
             "gutterIcon": true
         }
     },
-    "todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])"
+    "todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+    // LTEX Extension
+    "ltex.languageToolHttpServerUri": "",
+    "ltex.languageToolOrg.username": "",
+    "ltex.languageToolOrg.apiKey": "",
 }
