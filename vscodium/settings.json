@@ -13,6 +13,11 @@
         88
     ],
     "editor.cursorSurroundingLines": 8,
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingDelete": "never",
+    "editor.autoClosingQuotes": "never",
+    "editor.autoClosingComments": "never",
+    "editor.autoSurround": "never",
     // PYTHON
     "[python]": {
         "editor.codeActionsOnSave": {
