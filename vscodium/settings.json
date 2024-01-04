@@ -121,8 +121,4 @@
         }
     },
     "todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
-    // LTEX Extension
-    "ltex.languageToolHttpServerUri": "",
-    "ltex.languageToolOrg.username": "",
-    "ltex.languageToolOrg.apiKey": "",
 }
