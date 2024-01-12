@@ -1,109 +1,135 @@
 {
-    "window.zoomLevel": 0.5,
+    /* 
+    ###### Terminal configs ######
+    */
     "terminal.integrated.inheritEnv": true,
-    "window.menuBarVisibility": "toggle",
-    "workbench.activityBar.location": "hidden",
+    "terminal.integrated.fontSize": 14,
+    /* 
+    ##############################
+    */
+    
+    /* 
+    ###### Window configs ######
+    */
+    "window.zoomLevel": 0.5,
+    "window.menuBarVisibility": "hidden",
+    "window.commandCenter": false,
+    /* 
+    ##############################
+    */
+
+    /* 
+    ###### Editor configs ######
+    */
     "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'monospace', monospace",
-    "editor.formatOnSaveMode": "file",
     "editor.lineNumbers": "relative",
     "editor.fontSize": 14,
-    "terminal.integrated.fontSize": 14,
     "editor.minimap.enabled": false,
-    "editor.rulers": [
-        88
-    ],
     "editor.cursorSurroundingLines": 8,
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingDelete": "never",
     "editor.autoClosingQuotes": "never",
     "editor.autoClosingComments": "never",
     "editor.autoSurround": "never",
-    // PYTHON
+    "editor.rulers": [88],
+    "editor.semanticHighlighting.enabled": false,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.horizontal": "hidden",
+    /* 
+    ##############################
+    */
+
+    /* 
+    ###### Workbench configs ######
+    */
+    "workbench.activityBar.location": "hidden",
+    "workbench.editor.labelFormat": "short",
+    "workbench.layoutControl.enabled": false,
+    /* 
+    ##############################
+    */
+
+    /* 
+    ###### Explorer configs ######
+    */
+    "explorer.compactFolders": false,
+    /* 
+    ##############################
+    */
+
+    /* 
+    ###### Python ######
+    */
+    "python.analysis.typeCheckingMode": "strict", // pyright
     "[python]": {
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit",
-        },
         "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
         "editor.defaultFormatter": "ms-python.black-formatter",
     },
-    "python.experiments.optInto": [
-        "pythonREPLSmartSend"
-    ],
     "black-formatter.args": [
         "--line-length=88"
     ],
     "pylint.args": [
         "--max-line-length=88"
     ],
+    /* 
+    ##############################
+    */
+
+    /* 
+    ###### auto docstring ######
+    */
     "autoDocstring.docstringFormat": "google",
-    // VIM Extension
+    /* 
+    ##############################
+    */
+
+    /* 
+    ###### VIM ######
+    */
     "vim.useSystemClipboard": true,
     "vim.incsearch": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
     "vim.normalModeKeyBindingsNonRecursive": [
+        // Allow navigate wrapped text
         {
-            "before": [
-                "j"
-            ],
-            "after": [
-                "g",
-                "j"
-            ]
+            "before": ["j"], 
+            "after": ["g", "j"]
         },
         {
-            "before": [
-                "down"
-            ],
-            "after": [
-                "g",
-                "j"
-            ]
+            "before": ["down"],
+            "after": ["g", "j"]
         },
         {
-            "before": [
-                "k"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
+            "before": ["k"],
+            "after": ["g", "k"]
         },
         {
-            "before": [
-                "up"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
+            "before": ["up"],
+            "after": ["g", "k"]
         },
         {
-            "before": [
-                "<C-n>"
-            ],
-            "commands": [
-                ":nohl"
-            ]
+            "before": ["<C-n>"],
+            "commands": [":nohl"]
         },
     ],
     "vim.normalModeKeyBindings": [
         {
-            "before": [
-                "g",
-                "r"
-            ],
-            "commands": [
-                "editor.action.goToReferences"
-            ]
+            "before": ["g", "r"],
+            "commands": ["editor.action.goToReferences"]
         }
     ],
-    // TODO Tree Extension
-    "todo-tree.general.tags": [
-        "TODO",
-        "FIXME",
-        "REMOVEME"
-    ],
+    /* 
+    ##############################
+    */
+
+    /* 
+    ###### TODO Tree ######
+    */
+    "todo-tree.general.tags": ["TODO", "FIXME", "REMOVEME"],
     "todo-tree.highlights.customHighlight": {
         "TODO": {
             "icon": "checklist",
@@ -125,5 +151,18 @@
             "gutterIcon": true
         }
     },
-    "todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+    /* 
+    ##############################
+    */
+
+    /* 
+    ###### Ltex ######
+    */
+    "ltex.checkFrequency": "edit",
+    "ltex.languageToolHttpServerUri": "",
+    "ltex.languageToolOrg.apiKey": "",
+    "ltex.languageToolOrg.username": "",
+    /* 
+    ##############################
+    */
 }
