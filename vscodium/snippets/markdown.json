@@ -6,27 +6,26 @@
 				"- **Publication Date:** $3"
 				"- **DOI:** $4",
 				"---",
-				 "**1. What did author try to accomplish?**", 
-				 "",
-				 "**2. What were the key elements of the approach?**",
-				 "",
-				 "**3. What can be improved?**",
-				 "",
-				 "**4. What can be used for yourself?**",
-				 "",
-				 "**5. What other reference to do you want to follow?**",
+				"- [0. Key Points](#0-key-points)",
+				"- [1. What did the author(s) try to accomplish?](#1-what-did-the-authors-try-to-accomplish)",
+				"- [2. What were the key elements of the approach?](#2-what-were-the-key-elements-of-the-approach)",
+				"- [3. What can be improved?](#3-what-can-be-improved)",
+				"- [4. What can be used for yourself?](#4-what-can-be-used-for-yourself)",
+				"- [5. What other reference to do you want to follow?](#5-what-other-reference-to-do-you-want-to-follow)"
+				"---",
+				"# 0. Key Points",
+				"$5", 
+				"# 1. What did the author(s) try to accomplish?", 
+				"",
+				"# 2. What were the key elements of the approach?",
+				"",
+				"# 3. What can be improved?",
+				"",
+				"# 4. What can be used for yourself?",
+				"",
+				"# 5. What other reference to do you want to follow?",
 				""
 		],
 		"description": "Add paper important questions to be answered when after read the paper"
-	},
-	"Add footer github repository":{
-		"prefix": "mit footer",
-		"body":["<p align='center'>", 
-		"<strong>MIT License</strong><br>", 
-		"This project is licensed under the MIT License - see the <a href=$1>LICENSE</a> file for details.<br><br>
-  &copy; 2023 BrenoAV",
-		"&copy; 2023 BrenoAV",
-		"</p>"
-	]
 	}
 }
