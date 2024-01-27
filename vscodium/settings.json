@@ -4,6 +4,8 @@
     */
     "terminal.integrated.inheritEnv": true,
     "terminal.integrated.fontSize": 14,
+    "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.enablePersistentSessions": false,
     /* 
     ##############################
     */
@@ -12,8 +14,9 @@
     ###### Window configs ######
     */
     "window.zoomLevel": 0.5,
-    "window.menuBarVisibility": "hidden",
     "window.commandCenter": false,
+    "window.restoreWindows": "none",
+    "window.menuBarVisibility": "toggle",
     /* 
     ##############################
     */
@@ -38,13 +41,14 @@
     /* 
     ##############################
     */
-
+    
     /* 
     ###### Workbench configs ######
     */
-    "workbench.activityBar.location": "hidden",
     "workbench.editor.labelFormat": "short",
     "workbench.layoutControl.enabled": false,
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.activityBar.location": "hidden",
     /* 
     ##############################
     */
@@ -71,9 +75,6 @@
     "black-formatter.args": [
         "--line-length=88"
     ],
-    "pylint.args": [
-        "--max-line-length=88"
-    ],
     /* 
     ##############################
     */
@@ -93,6 +94,7 @@
     "vim.incsearch": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
+    "vim.leader": "<space>",
     "vim.normalModeKeyBindingsNonRecursive": [
         // Allow navigate wrapped text
         {
@@ -120,8 +122,25 @@
         {
             "before": ["g", "r"],
             "commands": ["editor.action.goToReferences"]
+        },
+        {
+            "before": ["<leader>", "e", "f"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<leader>", "X"],
+            "commands": ["ipython.runSection"],
+            "when": ["editorTextFocus && ipython.isUse && !inDebugMode && editorLangId == 'python'"]
+        },
+        {
+            "before": ["<leader>", "E"],
+            "commands": ["ipython.runSelections"],
+            "when": ["editorTextFocus && ipython.isUse && !findInputFocussed && !inDebugMode && !replaceInputFocussed && editorLangId == 'python'"]
         }
     ],
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
     /* 
     ##############################
     */
@@ -162,6 +181,17 @@
     "ltex.languageToolHttpServerUri": "",
     "ltex.languageToolOrg.apiKey": "",
     "ltex.languageToolOrg.username": "",
+    /* 
+    ##############################
+    */
+
+    /* 
+    ###### ipython ######
+    */
+    "ipython.StartupCommands": [
+        "%load_ext autoreload",
+        "%autoreload 2"
+    ],
     /* 
     ##############################
     */

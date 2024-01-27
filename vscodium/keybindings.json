@@ -13,25 +13,12 @@
         "command": "workbench.view.search",
     },
     {
-        "key": "alt+shift+e",
-        "command": "workbench.view.explorer",
-        "when": "viewContainer.workbench.view.explorer.enabled"
-    },
-    {
-        "key": "alt+ctrl+p",
-        "command": "workbench.action.toggleSidebarVisibility",
-    },
-    {
-        "key": "alt+shift+f",
-        "command": "workbench.view.search",
-    },
-    {
-        "key": "alt+shift+g",
-        "command": "workbench.view.scm",
-    },
-    {
         "key": "alt+shift+t",
         "command": "workbench.action.terminal.toggleTerminal",
+    },
+    {
+        "key": "alt+shift+q",
+        "command": "workbench.action.quickOpenView"
     },
     // Toggle between terminal and editor focus
     {
@@ -42,14 +29,6 @@
         "key": "alt+shift+enter",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "terminalFocus"
-    },
-    {
-        "key": "alt+shift+z",
-        "command": "workbench.action.toggleZenMode",
-    },
-    {
-        "key": "alt+shift+w",
-        "command": "workbench.view.extension.todo-tree-container",
     },
     {
         "key": "f",
@@ -99,8 +78,4 @@
         "command": "workbench.action.nextEditor",
         "when": "inputFocus && vim.mode == 'Normal'"
     },
-    {
-        "key": "alt+enter",
-        "command": "workbench.action.quickOpen",
-    }
 ]
