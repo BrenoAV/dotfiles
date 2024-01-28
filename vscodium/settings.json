@@ -13,7 +13,7 @@
     /* 
     ###### Window configs ######
     */
-    "window.zoomLevel": 0.5,
+    "window.zoomLevel": 0.6,
     "window.commandCenter": false,
     "window.restoreWindows": "none",
     "window.menuBarVisibility": "toggle",
@@ -70,11 +70,8 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
         },
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "charliermarsh.ruff",
     },
-    "black-formatter.args": [
-        "--line-length=88"
-    ],
     /* 
     ##############################
     */
@@ -136,7 +133,8 @@
             "before": ["<leader>", "E"],
             "commands": ["ipython.runSelections"],
             "when": ["editorTextFocus && ipython.isUse && !findInputFocussed && !inDebugMode && !replaceInputFocussed && editorLangId == 'python'"]
-        }
+        },
+        
     ],
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
