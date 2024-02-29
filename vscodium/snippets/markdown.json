@@ -1,5 +1,5 @@
 {
-	"Add paper important questions" :{
+	"Add paper important questions" : {
 		"prefix": "paper",
 		"body": ["- **Title:** $1",
 				"- **Journal:** $2"
@@ -27,5 +27,16 @@
 				""
 		],
 		"description": "Add paper important questions to be answered when after read the paper"
+	},
+	"add footnote for github": {
+		"prefix": "footnote",
+		"body": [
+			"---",
+			"",
+			"<p align='center'>",
+			"🛠️ Created by <strong>BrenoAV<strong> 🚀",
+			"</p>"
+		],
+		"description": "Simple footnote for GitHub"
 	}
 }
