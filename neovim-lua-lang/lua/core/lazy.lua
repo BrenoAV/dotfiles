@@ -53,6 +53,17 @@ require("lazy").setup({
         {
             "folke/todo-comments.nvim",
             dependencies = { "nvim-lua/plenary.nvim" }
+        },
+        -- latex
+        {
+          "lervag/vimtex",
+          init = function()
+            -- Use init for configuration, don't use the more common "config".
+          end
+        },
+        -- markdown
+        {
+            'preservim/vim-markdown' 
         }
 
     }

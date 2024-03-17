@@ -1,3 +1,4 @@
+vim.opt.mouse = ''
 vim.opt.clipboard = 'unnamedplus' -- Copy/paste to system clipboard
 vim.opt.number = true
 vim.opt.tabstop = 4  -- show existing tab with 4 spaces width

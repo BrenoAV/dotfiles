@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "ruff_lsp", "pyright", "ltex" }
+    ensure_installed = { "lua_ls", "ruff_lsp", "pyright", "ltex", "texlab", "powershell_es" }
 })
 
 local on_attach = function(_, _)
@@ -38,6 +38,12 @@ require('lspconfig').pyright.setup {
 
 require('lspconfig').ltex.setup{
     on_attach = on_attach,
+    settings = {
+        ltex = {
+            enabled = {"latex", "tex", "bib", "md"},
+            checkFrequency="save"
+        }
+    }
     -- settings ={
     --   ltex = {
     --     languageToolHttpServerUri='https://api.languagetoolplus.com',
@@ -47,4 +53,14 @@ require('lspconfig').ltex.setup{
     --     }
     --   }
     -- }
+}
+
+require('lspconfig').powershell_es.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+require('lspconfig').texlab.setup{
+    on_attach = on_attach,
+    capabilities = capabilities
 }
