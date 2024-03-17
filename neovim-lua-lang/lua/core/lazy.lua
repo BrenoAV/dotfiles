@@ -24,6 +24,14 @@ require("lazy").setup({
         {'saadparwaiz1/cmp_luasnip'},
         {'rafamadriz/friendly-snippets'},
         {'hrsh7th/cmp-nvim-lsp-signature-help'},
+        -- Formatter
+        {
+        "nvimdev/guard.nvim",
+        -- Builtin configuration, optional
+        dependencies = {
+                "nvimdev/guard-collection",
+            },
+        },
         -- Treesitter
         { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
         -- Gruvbox
