@@ -23,4 +23,5 @@ Set-PSReadLineOption -PredictionSource History
 
 Set-PSReadlineOption -BellStyle None
 
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\emodipt-extend.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\probua.minimal.omp.json" | Invoke-Expression
+
