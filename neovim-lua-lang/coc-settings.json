@@ -1,0 +1,6 @@
+{
+  "clangd.enabled": true,
+  "python.linting.ruffEnabled": true,
+  "python.analysis.typeCheckingMode": "strict",
+  "pyright.organizeimports.provider": "ruff",
+}

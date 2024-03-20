@@ -13,25 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        -- lsp
-        {'williamboman/mason-lspconfig.nvim'},
-        {'williamboman/mason.nvim'},
-        {'neovim/nvim-lspconfig'},
-        -- autocompletion
-        {'hrsh7th/nvim-cmp'},
-        {'hrsh7th/cmp-nvim-lsp'},
-        {'L3MON4D3/LuaSnip'},
-        {'saadparwaiz1/cmp_luasnip'},
-        {'rafamadriz/friendly-snippets'},
-        {'hrsh7th/cmp-nvim-lsp-signature-help'},
-        -- Formatter
-        {
-        "nvimdev/guard.nvim",
-        -- Builtin configuration, optional
-        dependencies = {
-                "nvimdev/guard-collection",
-            },
-        },
+        -- CoC
+        {"neoclide/coc.nvim", branch = "release"},
+        -- Ale
+        {'dense-analysis/ale'},
         -- Treesitter
         { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
         -- Gruvbox
@@ -62,19 +47,5 @@ require("lazy").setup({
             "folke/todo-comments.nvim",
             dependencies = { "nvim-lua/plenary.nvim" }
         },
-        -- latex
-        {
-          "lervag/vimtex",
-          init = function()
-            -- Use init for configuration, don't use the more common "config".
-          end
-        },
-        -- markdown
-        {
-            'preservim/vim-markdown' 
-        }
-
     }
 })
-
-
