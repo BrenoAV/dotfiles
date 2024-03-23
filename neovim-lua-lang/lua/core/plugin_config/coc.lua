@@ -3,9 +3,9 @@
 
 -- Extensions
 
-vim.g.coc_global_extensions = {'coc-pyright', 'coc-json',
-                               'coc-docker', 'coc-yaml', 'coc-lua',
-                               'coc-clangd', 'coc-html', 'coc-css'}
+vim.g.coc_global_extensions = {'coc-pyright', 'coc-json', 'coc-docker',
+                               'coc-clangd', 'coc-yaml', 'coc-sumneko-lua',
+                               'coc-html', 'coc-css', 'coc-snippets'}
 
 -- Some servers have issues with backup files, see #649
 vim.opt.backup = false

@@ -21,6 +21,17 @@ require("lazy").setup({
         { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
         -- Gruvbox
         {'sainnhe/gruvbox-material', lazy=false},
+        {
+          'ribru17/bamboo.nvim',
+          lazy = false,
+          priority = 1000,
+          config = function()
+            require('bamboo').setup {
+              -- optional configuration here
+            }
+            require('bamboo').load()
+          end,
+        },
         -- Telescope
         {
             'nvim-telescope/telescope.nvim', tag = '0.1.6',
@@ -47,5 +58,9 @@ require("lazy").setup({
             "folke/todo-comments.nvim",
             dependencies = { "nvim-lua/plenary.nvim" }
         },
+        -- snippets
+        { "rafamadriz/friendly-snippets" },
+        -- tabular
+        {"godlygeek/tabular"},
     }
 })

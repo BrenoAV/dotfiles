@@ -1,4 +1,4 @@
-vim.g.ale_linters = {['python'] = {'ruff'}}
+vim.g.ale_linters = { ['python'] = {'ruff'} }
 
 vim.g.ale_fixers = {
     ['*'] = {'remove_trailing_lines', 'trim_whitespace'},
