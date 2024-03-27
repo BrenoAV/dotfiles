@@ -107,3 +107,8 @@ augroup markdownSpell
     autocmd BufRead,BufNewFile *.md setlocal spell
 augroup END
 ]])
+
+
+vim.g.coc_filetype_map = {
+    tex = 'latex'
+}

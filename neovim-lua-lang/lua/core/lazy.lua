@@ -62,5 +62,16 @@ require("lazy").setup({
         { "rafamadriz/friendly-snippets" },
         -- tabular
         {"godlygeek/tabular"},
+        -- markdown
+        {"preservim/vim-markdown"},
+        {
+          "iamcco/markdown-preview.nvim",
+          cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+          build = "cd app && npm install",
+          init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+          end,
+          ft = { "markdown" },
+      },
     }
 })
