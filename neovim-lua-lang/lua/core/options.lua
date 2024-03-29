@@ -27,6 +27,8 @@ vim.opt.foldmethod = 'indent'
 vim.opt.filetype = 'on'
 vim.opt.termguicolors = true
 
+vim.api.nvim_set_var('maplocalleader', ',')
+
 local is_windows = package.config:sub(1, 1) == '\\'
 
 if is_windows then

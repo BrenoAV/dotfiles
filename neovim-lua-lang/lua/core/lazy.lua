@@ -73,5 +73,7 @@ require("lazy").setup({
           end,
           ft = { "markdown" },
       },
+      -- jupyter vim
+      { "jupyter-vim/jupyter-vim" }
     }
 })
