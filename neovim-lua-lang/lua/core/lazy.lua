@@ -13,14 +13,25 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        -- CoC
-        {"neoclide/coc.nvim", branch = "release"},
-        -- Ale
-        {'dense-analysis/ale'},
+        -- LSP
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+        -- Autocomplete
+        "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-nvim-lsp",
+        "saadparwaiz1/cmp_luasnip",
+        "L3MON4D3/LuaSnip",
+        -- snippets
+        { "rafamadriz/friendly-snippets" },
+        {
+          "ray-x/lsp_signature.nvim",
+          event = "VeryLazy",
+          opts = {},
+          config = function(_, opts) require'lsp_signature'.setup(opts) end
+        },
         -- Treesitter
         { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-        -- Gruvbox
-        {'sainnhe/gruvbox-material', lazy=false},
         {
           'ribru17/bamboo.nvim',
           lazy = false,
@@ -58,8 +69,6 @@ require("lazy").setup({
             "folke/todo-comments.nvim",
             dependencies = { "nvim-lua/plenary.nvim" }
         },
-        -- snippets
-        { "rafamadriz/friendly-snippets" },
         -- tabular
         {"godlygeek/tabular"},
         -- markdown
