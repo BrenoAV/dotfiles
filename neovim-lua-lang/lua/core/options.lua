@@ -102,15 +102,3 @@ end
 
 vim.cmd('autocmd CursorHold,CursorHoldI * lua HighlightWordUnderCursor()')
 
-vim.cmd([[
-augroup markdownSpell
-    autocmd!
-    autocmd FileType markdown setlocal spell spelllang=en_us
-    autocmd BufRead,BufNewFile *.md setlocal spell
-augroup END
-]])
-
-
-vim.g.coc_filetype_map = {
-    tex = 'latex'
-}
