@@ -1,4 +1,4 @@
-vim.opt.mouse = ''
+vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamedplus' -- Copy/paste to system clipboard
 vim.opt.number = true
 vim.opt.tabstop = 4  -- show existing tab with 4 spaces width
@@ -26,8 +26,10 @@ vim.opt.relativenumber = true
 vim.opt.foldmethod = 'indent'
 vim.opt.filetype = 'on'
 vim.opt.termguicolors = true
+vim.opt.shell = "powershell"
 
 vim.api.nvim_set_var('maplocalleader', ',')
+vim.g.mapleader = ' '
 
 local is_windows = package.config:sub(1, 1) == '\\'
 
@@ -101,4 +103,5 @@ function HighlightWordUnderCursor()
 end
 
 vim.cmd('autocmd CursorHold,CursorHoldI * lua HighlightWordUnderCursor()')
+
 

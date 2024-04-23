@@ -36,6 +36,8 @@ require("lazy").setup({
 		},
 		-- Treesitter
 		{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+        -- Colors
+        { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
 		{
 			"ribru17/bamboo.nvim",
 			lazy = false,
