@@ -52,6 +52,7 @@ require("lspconfig").texlab.setup({
     settings = {
         texlab = {
             forwardSearch = {
+
                 executable = "C:\\Users\\brenoav\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe",
                 args = { "%p" }
             },
@@ -70,7 +71,7 @@ require("lspconfig").ltex.setup({
             additionalRules = {
                 enablePickyRules = true
             },
-            languageToolHttpServerUri = "https://api.languagetoolplus.com",
+            languageToolHttpServerUri = "",
             languageToolOrg = {
                 username = "",
                 apiKey = ""
