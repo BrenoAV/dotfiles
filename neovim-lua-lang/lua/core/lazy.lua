@@ -17,13 +17,13 @@ require("lazy").setup({
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+        -- Formartter
+        'sbdchd/neoformat',
         -- Autocomplete
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-nvim-lsp",
         "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
-        -- Formatters
-        "sbdchd/neoformat",
         -- snippets
         { "rafamadriz/friendly-snippets" },
         {
@@ -37,7 +37,6 @@ require("lazy").setup({
         -- Treesitter
         { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
         -- Colors
-        { "ellisonleao/gruvbox.nvim",        priority = 1000,    config = true, opts = ... },
         {
             "ribru17/bamboo.nvim",
             lazy = false,
@@ -83,11 +82,20 @@ require("lazy").setup({
         {
             "iamcco/markdown-preview.nvim",
             cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-            build = "cd app ; npm install",
+            build = "cd app ; yarn install",
             init = function()
                 vim.g.mkdp_filetypes = { "markdown" }
             end,
             ft = { "markdown" },
+        },
+        {
+            "prettier/vim-prettier",
+            build = "yarn install --frozen-lockfile --production",
+            init = function()
+                vim.g.mkdp_filetypes = { 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown',
+                    'vue', 'svelte', 'yaml', 'html' }
+            end,
+
         },
         -- jupyter vim
         { "jupyter-vim/jupyter-vim" },

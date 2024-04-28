@@ -26,7 +26,6 @@ vim.opt.relativenumber = true
 vim.opt.foldmethod = 'indent'
 vim.opt.filetype = 'on'
 vim.opt.termguicolors = true
-vim.opt.shell = "powershell"
 
 vim.api.nvim_set_var('maplocalleader', ',')
 vim.g.mapleader = ' '

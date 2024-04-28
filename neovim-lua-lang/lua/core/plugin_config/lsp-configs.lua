@@ -1,7 +1,10 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "pyright", "ruff_lsp", "texlab", "clangd", "ltex" },
+   ensure_installed = { "lua_ls", "pyright", "ruff_lsp",
+        "texlab", "clangd", "ltex"}
 })
+
+vim.g.neoformat_try_node_exe = 1
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -33,7 +36,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
     vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-    vim.keymap.set("n", "<space>f", function()
+    vim.keymap.set("n", "<localleader>f", function()
         vim.lsp.buf.format({ async = true })
     end, bufopts)
 end
@@ -52,8 +55,7 @@ require("lspconfig").texlab.setup({
     settings = {
         texlab = {
             forwardSearch = {
-
-                executable = "C:\\Users\\brenoav\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe",
+                executable = "C:\\Users\\breno\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe",
                 args = { "%p" }
             },
         },
@@ -71,7 +73,7 @@ require("lspconfig").ltex.setup({
             additionalRules = {
                 enablePickyRules = true
             },
-            languageToolHttpServerUri = "",
+            languageToolHttpServerUri = "https://api.languagetoolplus.com/v2",
             languageToolOrg = {
                 username = "",
                 apiKey = ""
