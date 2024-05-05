@@ -75,10 +75,12 @@ require("lazy").setup({
             "folke/todo-comments.nvim",
             dependencies = { "nvim-lua/plenary.nvim" },
         },
-        -- tabular
-        { "godlygeek/tabular" },
         -- markdown
-        { "preservim/vim-markdown" },
+        {
+            "preservim/vim-markdown",
+            branch = "master",
+            require = { "godlygeek/tabular" },
+        },
         {
             "iamcco/markdown-preview.nvim",
             cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

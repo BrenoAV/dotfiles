@@ -1,17 +1,38 @@
--- Use <C-l> for trigger snippet expand.
-vim.api.nvim_set_keymap('i', '<C-l>', '<Plug>(coc-snippets-expand)', { silent = true })
+local ls = require("luasnip")
 
--- Use <C-j> for select text for visual placeholder of snippet.
-vim.api.nvim_set_keymap('v', '<C-j>', '<Plug>(coc-snippets-select)', { silent = true })
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 
--- Use <C-j> for jump to next placeholder, it's default of coc.nvim
-vim.g.coc_snippet_next = '<c-j>'
 
--- Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-vim.g.coc_snippet_prev = '<c-k>'
+-- some shorthands...
+local snip = ls.snippet
+local node = ls.snippet_node
+local text = ls.text_node
+local insert = ls.insert_node
+local func = ls.function_node
+local choice = ls.choice_node
+local dynamicn = ls.dynamic_node
 
--- Use <C-j> for both expand and jump (make expand higher priority.)
-vim.api.nvim_set_keymap('i', '<C-j>', '<Plug>(coc-snippets-expand-jump)', { silent = true })
 
--- Use <leader>x for convert visual selected code to snippet
-vim.api.nvim_set_keymap('x', '<leader>x', '<Plug>(coc-convert-snippet)', { silent = true })
+ls.add_snippets(nil, {
+    all = {
+        snip({
+            trig = "pandoc-header",
+            namr = "header",
+            dscr = "Basic header of pandoc",
+        }, {
+            text({"---", ""}),
+            text({"title:", ""}),
+            text({"author:", ""}),
+            text({"date:", ""}),
+            text({"category:", ""}),
+            text({"lang:", ""}),
+            text({"---", "", ""})
+        }),
+    },
+})
+

@@ -33,7 +33,7 @@ vim.g.mapleader = ' '
 local is_windows = package.config:sub(1, 1) == '\\'
 
 if is_windows then
-    vim.g.python3_host_prog = 'C:\\Program Files\\Python312\\python.exe'
+    vim.g.python3_host_prog = 'C:\\Users\\breno\\.pyenv\\pyenv-win\\versions\\3.12.3\\python.exe'
 else
     vim.g.python3_host_prog = '/usr/bin/python3'
 end
@@ -103,4 +103,4 @@ end
 
 vim.cmd('autocmd CursorHold,CursorHoldI * lua HighlightWordUnderCursor()')
 
-
+vim.api.nvim_set_keymap('n', '<C-n>', ':noh<CR>', {noremap = true, silent = true})

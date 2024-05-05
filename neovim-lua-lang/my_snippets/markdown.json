@@ -1,0 +1,14 @@
+{
+"header-pandoc": {
+	"prefix": "header",
+	"body": [
+		"---",
+		"title:",
+		"author:",
+		"date:",
+		"category:",
+		"lang:",
+		"---"
+	],
+}
+}
