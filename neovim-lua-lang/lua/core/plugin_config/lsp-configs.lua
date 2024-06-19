@@ -73,11 +73,11 @@ require("lspconfig").ltex.setup({
             additionalRules = {
                 enablePickyRules = true
             },
-            languageToolHttpServerUri = "https://api.languagetoolplus.com/v2",
-            languageToolOrg = {
-                username = "",
-                apiKey = ""
-            }
+            -- languageToolHttpServerUri = "https://api.languagetoolplus.com/v2",
+            -- languageToolOrg = {
+            --     username = "",
+            --     apiKey = ""
+            -- }
         }
     }
 })
