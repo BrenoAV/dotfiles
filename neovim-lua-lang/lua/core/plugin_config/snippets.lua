@@ -36,3 +36,14 @@ ls.add_snippets(nil, {
     },
 })
 
+ls.add_snippets(nil , {
+    tex = {
+        snip({
+            trig = "emph",
+            namr = "emphase",
+            dscr = "Emphase text latex"
+        }, {
+            text("\\emph{"), insert(1, "text"), text("}")
+        })
+    }
+})
