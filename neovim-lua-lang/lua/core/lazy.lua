@@ -107,7 +107,5 @@ require("lazy").setup({
                 -- Use init for configuration, don't use the more common "config".
             end,
         },
-        -- gruvbox
-        { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...}
     },
 })

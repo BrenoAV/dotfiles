@@ -54,9 +54,14 @@ require("lspconfig").texlab.setup({
     capabilities = capabilities,
     settings = {
         texlab = {
+            build = {
+                onSave = true
+            },
             forwardSearch = {
-                executable = "C:\\Users\\breno\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe",
-                args = { "%p" }
+                executable = "zathura",
+                -- executable = "C:\\Users\\breno\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe",
+                args = { "--synctex-forward", "%l:1:%f", "%p" },
+                onSave = true
             },
         },
     },
@@ -68,7 +73,7 @@ require("lspconfig").ltex.setup({
     flags = { debounce_text_changes = 300 },
     settings = {
         ltex = {
-            language = "pt-BR",
+            language = "en-US",
             checkFrequency = "save",
             additionalRules = {
                 enablePickyRules = true

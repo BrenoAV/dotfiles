@@ -35,7 +35,7 @@ local is_windows = package.config:sub(1, 1) == '\\'
 if is_windows then
     vim.g.python3_host_prog = 'C:\\Users\\breno\\.pyenv\\pyenv-win\\versions\\3.12.3\\python.exe'
 else
-    vim.g.python3_host_prog = '/usr/bin/python3'
+    vim.g.python3_host_prog = '/home/brenoav/.pyenv/shims/python'
 end
 
 -- Finding Files
@@ -104,3 +104,10 @@ end
 vim.cmd('autocmd CursorHold,CursorHoldI * lua HighlightWordUnderCursor()')
 
 vim.api.nvim_set_keymap('n', '<C-n>', ':noh<CR>', {noremap = true, silent = true})
+
+
+-- Shortcuts to execute session saves and restore
+local session_dir = '~/vim-sessions'
+
+vim.api.nvim_set_keymap('n', '<Leader>ss', ':mks! ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<Leader>sr', ':so ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>', { noremap = true, silent = false })
