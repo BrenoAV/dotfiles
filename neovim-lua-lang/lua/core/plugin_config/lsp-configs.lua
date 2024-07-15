@@ -73,16 +73,16 @@ require("lspconfig").ltex.setup({
     flags = { debounce_text_changes = 300 },
     settings = {
         ltex = {
-            language = "en-US",
+            language = "pt-BR",
             checkFrequency = "save",
             additionalRules = {
                 enablePickyRules = true
             },
-            -- languageToolHttpServerUri = "https://api.languagetoolplus.com/v2",
-            -- languageToolOrg = {
-            --     username = "",
-            --     apiKey = ""
-            -- }
+--              languageToolHttpServerUri = "https://api.languagetoolplus.com",
+--              languageToolOrg = {
+--              username = "",
+--              apiKey = ""
+--            }
         }
     }
 })

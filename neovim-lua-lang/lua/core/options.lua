@@ -1,27 +1,27 @@
 vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamedplus' -- Copy/paste to system clipboard
 vim.opt.number = true
-vim.opt.tabstop = 4  -- show existing tab with 4 spaces width
-vim.opt.softtabstop = 4 -- show existing tab with 4 spaces width
-vim.opt.shiftwidth = 4 -- when identing with '>', use 4 spaces width
-vim.opt.expandtab = true -- on pressing tab, insert 4 spaces
-vim.opt.smarttab = true -- insert tabs on the start of a line according to shiftwidth
-vim.opt.smartindent = true -- automatically inserts one extra level of indentation in some cases
-vim.opt.hidden = true -- Hides the current buffer when a new file is openned
-vim.opt.incsearch = true -- incremental search
-vim.opt.ignorecase = true -- ignore case in search
-vim.opt.smartcase = true -- consider case if there is a upper case character
-vim.opt.scrolloff = 8 -- minimum number of lines to keep above and below the cursor
-vim.opt.colorcolumn = '81' -- draws a line at the given line to keep aware of the line size
-vim.opt.signcolumn = 'yes' -- add a column on the left. Useful for linting
-vim.opt.cmdheight = 2 -- give more space for displaying messages
-vim.opt.updatetime = 100 -- time in miliseconds to consider the changes
-vim.opt.encoding = 'utf-8' -- the enconding should be utf-8 to activate the font icons
-vim.opt.backup = false -- no backup files
-vim.opt.writebackup = false -- no backup files
-vim.opt.splitright = true -- create the vertical splits to the right
-vim.opt.splitbelow = true -- create the horizontal splits below
-vim.opt.autoread = true -- update vim after file update from outside
+vim.opt.tabstop = 4               -- show existing tab with 4 spaces width
+vim.opt.softtabstop = 4           -- show existing tab with 4 spaces width
+vim.opt.shiftwidth = 4            -- when identing with '>', use 4 spaces width
+vim.opt.expandtab = true          -- on pressing tab, insert 4 spaces
+vim.opt.smarttab = true           -- insert tabs on the start of a line according to shiftwidth
+vim.opt.smartindent = true        -- automatically inserts one extra level of indentation in some cases
+vim.opt.hidden = true             -- Hides the current buffer when a new file is openned
+vim.opt.incsearch = true          -- incremental search
+vim.opt.ignorecase = true         -- ignore case in search
+vim.opt.smartcase = true          -- consider case if there is a upper case character
+vim.opt.scrolloff = 8             -- minimum number of lines to keep above and below the cursor
+vim.opt.colorcolumn = '81'        -- draws a line at the given line to keep aware of the line size
+vim.opt.signcolumn = 'yes'        -- add a column on the left. Useful for linting
+vim.opt.cmdheight = 2             -- give more space for displaying messages
+vim.opt.updatetime = 100          -- time in miliseconds to consider the changes
+vim.opt.encoding = 'utf-8'        -- the enconding should be utf-8 to activate the font icons
+vim.opt.backup = false            -- no backup files
+vim.opt.writebackup = false       -- no backup files
+vim.opt.splitright = true         -- create the vertical splits to the right
+vim.opt.splitbelow = true         -- create the horizontal splits below
+vim.opt.autoread = true           -- update vim after file update from outside
 vim.opt.relativenumber = true
 vim.opt.foldmethod = 'indent'
 vim.opt.filetype = 'on'
@@ -33,7 +33,7 @@ vim.g.mapleader = ' '
 local is_windows = package.config:sub(1, 1) == '\\'
 
 if is_windows then
-    vim.g.python3_host_prog = 'C:\\Users\\breno\\.pyenv\\pyenv-win\\versions\\3.12.3\\python.exe'
+    vim.g.python3_host_prog = 'C:\\Users\\breno\\.pyenv\\pyenv-win\\versions\\3.12.4\\python.exe'
 else
     vim.g.python3_host_prog = '/home/brenoav/.pyenv/shims/python'
 end
@@ -61,12 +61,13 @@ vim.api.nvim_set_keymap('n', 'tv', ':vsplit<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'tn', ':tabe<CR>', { noremap = true })
 
 -- Navigating between tabs
-vim.api.nvim_set_keymap('n', '<C-l>', ':tabn<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-h>', ':tabp<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>1', '<CMD>tabn 1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>2', '<CMD>tabn 2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>3', '<CMD>tabn 3<CR>', { noremap = true, silent = true })
 
 -- navigate between Buffers
-vim.api.nvim_set_keymap('n', 'ty', ':bn<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', 'tr', ':bp<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-h>', ':bn<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-l>', ':bp<CR>', { noremap = true })
 
 -- Close the current buffer
 vim.api.nvim_set_keymap('n', 'td', ':bd<CR>', { noremap = true })
@@ -78,12 +79,12 @@ vim.api.nvim_set_keymap('n', '<C-x>', ':bp\\|bd #<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>bd', ':%bd\\|e#\\|bd#<CR>\\|\'"', { noremap = true })
 
 -- Move lines up and down
-vim.api.nvim_set_keymap('n', '<M-Down>', ':m .+1<CR>==', { noremap = true })
-vim.api.nvim_set_keymap('n', '<M-Up>', ':m .-2<CR>==', { noremap = true })
-vim.api.nvim_set_keymap('i', '<M-Down>', '<Esc>:m .+1<CR>==gi', { noremap = true })
-vim.api.nvim_set_keymap('i', '<M-Up>', '<Esc>:m .-2<CR>==gi', { noremap = true })
-vim.api.nvim_set_keymap('v', '<M-Down>', ':m \'>+1<CR>gv=gv', { noremap = true })
-vim.api.nvim_set_keymap('v', '<M-Up>', ':m \'<-2<CR>gv=gv', { noremap = true })
+vim.api.nvim_set_keymap('n', '<M-Down>', ':m .+1<CR>==', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-Up>', ':m .-2<CR>==', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<M-Down>', '<Esc>:m .+1<CR>==gi', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<M-Up>', '<Esc>:m .-2<CR>==gi', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<M-Down>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<M-Up>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
 
 -- Exec scripts
 vim.api.nvim_set_keymap('n', 'tp', ':!python %<CR>', { noremap = true })
@@ -103,11 +104,13 @@ end
 
 vim.cmd('autocmd CursorHold,CursorHoldI * lua HighlightWordUnderCursor()')
 
-vim.api.nvim_set_keymap('n', '<C-n>', ':noh<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-n>', ':noh<CR>', { noremap = true, silent = true })
 
 
 -- Shortcuts to execute session saves and restore
 local session_dir = '~/vim-sessions'
 
-vim.api.nvim_set_keymap('n', '<Leader>ss', ':mks! ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>', { noremap = true, silent = false })
-vim.api.nvim_set_keymap('n', '<Leader>sr', ':so ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<Leader>ss', ':mks! ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>',
+    { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<Leader>so', ':so ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>',
+    { noremap = true, silent = false })
