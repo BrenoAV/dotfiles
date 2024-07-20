@@ -64,6 +64,8 @@ vim.api.nvim_set_keymap('n', 'tn', ':tabe<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>1', '<CMD>tabn 1<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>2', '<CMD>tabn 2<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>3', '<CMD>tabn 3<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>4', '<CMD>tabn 4<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>5', '<CMD>tabn 5<CR>', { noremap = true, silent = true })
 
 -- navigate between Buffers
 vim.api.nvim_set_keymap('n', '<C-h>', ':bn<CR>', { noremap = true })

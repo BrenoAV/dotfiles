@@ -1,7 +1,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-   ensure_installed = { "lua_ls", "pyright", "ruff_lsp",
-        "texlab", "clangd", "ltex"}
+    ensure_installed = { "lua_ls", "pyright", "ruff_lsp",
+        "texlab", "clangd", "ltex", "dockerls", "docker_compose_language_service" }
 })
 
 vim.g.neoformat_try_node_exe = 1
@@ -78,11 +78,11 @@ require("lspconfig").ltex.setup({
             additionalRules = {
                 enablePickyRules = true
             },
---              languageToolHttpServerUri = "https://api.languagetoolplus.com",
---              languageToolOrg = {
---              username = "",
---              apiKey = ""
---            }
+            --              languageToolHttpServerUri = "https://api.languagetoolplus.com",
+            --              languageToolOrg = {
+            --              username = "",
+            --              apiKey = ""
+            --            }
         }
     }
 })
@@ -108,6 +108,16 @@ require("lspconfig").ruff_lsp.setup({
 })
 
 require("lspconfig").clangd.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+
+require("lspconfig").dockerls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+
+require("lspconfig").docker_compose_language_service.setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
