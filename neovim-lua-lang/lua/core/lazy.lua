@@ -36,18 +36,6 @@ require("lazy").setup({
         },
         -- Treesitter
         { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-        -- Colors
-        {
-            "ribru17/bamboo.nvim",
-            lazy = false,
-            priority = 1000,
-            config = function()
-                require("bamboo").setup({
-                    -- optional configuration here
-                })
-                require("bamboo").load()
-            end,
-        },
         -- Telescope
         {
             "nvim-telescope/telescope.nvim",
@@ -107,6 +95,9 @@ require("lazy").setup({
                 -- Use init for configuration, don't use the more common "config".
             end,
         },
-        { "kkoomen/vim-doge" }
+        { "kkoomen/vim-doge" },
+        -- Colorscheme
+        { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+        { "Mofiqul/vscode.nvim", name = "vscode", priority = 1000 }
     },
 })

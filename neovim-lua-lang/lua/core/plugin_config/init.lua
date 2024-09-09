@@ -1,4 +1,4 @@
-require("core.plugin_config.colors-bamboo")
+require("core.plugin_config.colors_vscode")
 require("core.plugin_config.lualine")
 require("core.plugin_config.telescope")
 require("core.plugin_config.treesitter")
