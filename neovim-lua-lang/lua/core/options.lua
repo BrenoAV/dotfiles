@@ -78,7 +78,11 @@ vim.api.nvim_set_keymap('n', 'td', ':bd<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-x>', ':bp\\|bd #<CR>', { noremap = true })
 
 -- Close all buffers but this one
-vim.api.nvim_set_keymap('n', '<leader>bd', ':%bd\\|e#\\|bd#<CR>\\|\'"', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>bd', '', { noremap = true, callback = function()
+  vim.cmd('%bd')  -- delete all buffers
+  vim.cmd('e#')   -- open previous buffer
+  vim.cmd('bd#')  -- delete previous buffer
+end })
 
 -- Move lines up and down
 vim.api.nvim_set_keymap('n', '<M-Down>', ':m .+1<CR>==', { noremap = true, silent = true })
