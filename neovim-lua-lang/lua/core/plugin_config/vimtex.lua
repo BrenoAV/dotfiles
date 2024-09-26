@@ -7,3 +7,4 @@ vim.cmd('filetype plugin indent on')
 -- info).
 vim.cmd('syntax enable')
 
+vim.g.vimtex_quickfix_open_on_warning = 0

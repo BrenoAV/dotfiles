@@ -55,13 +55,13 @@ require("lspconfig").texlab.setup({
     settings = {
         texlab = {
             build = {
-                onSave = true
+                onSave = false
             },
             forwardSearch = {
                 executable = "zathura",
                 -- executable = "C:\\Users\\breno\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe",
                 args = { "--synctex-forward", "%l:1:%f", "%p" },
-                onSave = true
+                onSave = false
             },
         },
     },
