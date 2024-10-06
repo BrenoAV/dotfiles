@@ -96,7 +96,10 @@ require("lspconfig").pyright.setup({
                 ignore = "*",
                 disableOrganizeImports = false,
                 typeCheckingMode = "basic",
-            },
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = 'openFilesOnly'
+            }
         },
     },
 })

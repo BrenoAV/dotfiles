@@ -21,19 +21,12 @@ require("lazy").setup({
         'sbdchd/neoformat',
         -- Autocomplete
         "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
         "hrsh7th/cmp-nvim-lsp",
+        -- snippets
         "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
-        -- snippets
         { "rafamadriz/friendly-snippets" },
-        {
-            "ray-x/lsp_signature.nvim",
-            event = "VeryLazy",
-            opts = {},
-            config = function(_, opts)
-                require("lsp_signature").setup(opts)
-            end,
-        },
         -- Treesitter
         { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
         -- Telescope
@@ -91,12 +84,16 @@ require("lazy").setup({
         -- vimtext
         {
             "lervag/vimtex",
+            lazy = false,
             init = function()
-                -- Use init for configuration, don't use the more common "config".
+                vim.cmd('filetype plugin indent on')
+                vim.cmd('syntax enable')
+                vim.g.vimtex_quickfix_open_on_warning = false
+                vim.g.vimtex_view_method = "zathura"
             end,
         },
         { "kkoomen/vim-doge" },
         -- Colorscheme
-        { "Mofiqul/vscode.nvim", name = "vscode", priority = 1000 }
+        { "Mofiqul/vscode.nvim",    name = "vscode", priority = 1000 },
     },
 })

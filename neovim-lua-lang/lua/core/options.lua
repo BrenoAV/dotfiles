@@ -35,7 +35,7 @@ local is_windows = package.config:sub(1, 1) == '\\'
 if is_windows then
     vim.g.python3_host_prog = 'C:\\Users\\brenoav\\.pyenv\\pyenv-win\\versions\\3.12.5\\python.exe'
 else
-    vim.g.python3_host_prog = '/usr/bin/python3'
+    vim.g.python3_host_prog = '/home/brenoav/.pyenv/shims/python3'
 end
 
 -- Finding Files
