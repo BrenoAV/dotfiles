@@ -26,14 +26,13 @@ vim.opt.relativenumber = true
 vim.opt.foldmethod = 'indent'
 vim.opt.filetype = 'on'
 vim.opt.termguicolors = true
-
-vim.api.nvim_set_var('maplocalleader', ',')
 vim.g.mapleader = ' '
+vim.api.nvim_set_var('maplocalleader', ',')
 
 local is_windows = package.config:sub(1, 1) == '\\'
 
 if is_windows then
-    vim.g.python3_host_prog = 'C:\\Users\\brenoav\\.pyenv\\pyenv-win\\versions\\3.12.5\\python.exe'
+    vim.g.python3_host_prog = 'C:\\Users\\brenoav\\.pyenv\\pyenv-win\\versions\\3.12.7\\python.exe'
 else
     vim.g.python3_host_prog = '/home/brenoav/.pyenv/shims/python3'
 end
@@ -56,10 +55,8 @@ vim.opt.wildmenu = true
 -- Create Splits
 vim.api.nvim_set_keymap('n', 'th', ':split<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'tv', ':vsplit<CR>', { noremap = true })
-
 -- Create a tab
 vim.api.nvim_set_keymap('n', 'tn', ':tabe<CR>', { noremap = true })
-
 -- Navigating between tabs
 vim.api.nvim_set_keymap('n', '<leader>1', '<CMD>tabn 1<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>2', '<CMD>tabn 2<CR>', { noremap = true, silent = true })
@@ -77,13 +74,6 @@ vim.api.nvim_set_keymap('n', 'td', ':bd<CR>', { noremap = true })
 -- delete a buffer without losing the split window
 vim.api.nvim_set_keymap('n', '<C-x>', ':bp\\|bd #<CR>', { noremap = true })
 
--- Close all buffers but this one
-vim.api.nvim_set_keymap('n', '<leader>bd', '', { noremap = true, callback = function()
-  vim.cmd('%bd')  -- delete all buffers
-  vim.cmd('e#')   -- open previous buffer
-  vim.cmd('bd#')  -- delete previous buffer
-end })
-
 -- Move lines up and down
 vim.api.nvim_set_keymap('n', '<M-Down>', ':m .+1<CR>==', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<M-Up>', ':m .-2<CR>==', { noremap = true, silent = true })
@@ -92,14 +82,11 @@ vim.api.nvim_set_keymap('i', '<M-Up>', '<Esc>:m .-2<CR>==gi', { noremap = true, 
 vim.api.nvim_set_keymap('v', '<M-Down>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<M-Up>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
 
--- Exec scripts
-vim.api.nvim_set_keymap('n', 'tp', ':!python %<CR>', { noremap = true })
-
 -- Move between wrapped text
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true })
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true })
 
--- AUTOCMD
+-- Highligthing
 function HighlightWordUnderCursor()
     if vim.fn.getline('.'):sub(vim.fn.col('.') - 1, vim.fn.col('.') - 1):match('[%w]') then
         vim.cmd('match Search /\\V\\<' .. vim.fn.expand('<cword>') .. '\\>/')
@@ -107,15 +94,11 @@ function HighlightWordUnderCursor()
         vim.cmd('match none')
     end
 end
-
 vim.cmd('autocmd CursorHold,CursorHoldI * lua HighlightWordUnderCursor()')
-
 vim.api.nvim_set_keymap('n', '<C-n>', ':noh<CR>', { noremap = true, silent = true })
-
 
 -- Shortcuts to execute session saves and restore
 local session_dir = '~/vim-sessions'
-
 vim.api.nvim_set_keymap('n', '<Leader>ss', ':mks! ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>',
     { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', '<Leader>so', ':so ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>',
