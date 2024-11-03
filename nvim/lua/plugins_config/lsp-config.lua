@@ -1,6 +1,8 @@
+local LANG = "pt-BR"
+
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "pyright", "ruff", "texlab", "ltex", "dockerls", "docker_compose_language_service" },
+    ensure_installed = { "lua_ls", "pyright", "ruff", "texlab", "dockerls", "docker_compose_language_service" },
 }
 )
 
@@ -64,31 +66,11 @@ require("lspconfig").texlab.setup({
             },
             forwardSearch = {
                 executable = "zathura",
-                -- executable = "C:\\Users\\breno\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe",
                 args = { "--synctex-forward", "%l:1:%f", "%p" },
                 onSave = false
             },
         },
     },
-})
-require("lspconfig").ltex.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = { debounce_text_changes = 300 },
-    settings = {
-        ltex = {
-            language = "en-US",
-            checkFrequency = "save",
-            additionalRules = {
-                enablePickyRules = true
-            },
-            --              languageToolHttpServerUri = "https://api.languagetoolplus.com",
-            --              languageToolOrg = {
-            --              username = "",
-            --              apiKey = ""
-            --            }
-        }
-    }
 })
 require("lspconfig").dockerls.setup({
     on_attach = on_attach,

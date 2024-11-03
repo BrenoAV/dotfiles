@@ -103,3 +103,13 @@ vim.api.nvim_set_keymap('n', '<Leader>ss', ':mks! ' .. session_dir .. '/*.vim<BS
     { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', '<Leader>so', ':so ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>',
     { noremap = true, silent = false })
+
+-- Enable spell-checking in Portuguese (Brazil) for .tex and .md files
+vim.api.nvim_create_augroup("SpellCheckPTBR", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "tex", "markdown" },
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = "pt_br"
+  end,
+})
