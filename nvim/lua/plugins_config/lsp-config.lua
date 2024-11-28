@@ -1,8 +1,6 @@
-local LANG = "pt-BR"
-
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "pyright", "ruff", "texlab", "dockerls", "docker_compose_language_service" },
+    ensure_installed = { "lua_ls", "pyright", "ruff", "texlab", "dockerls", "docker_compose_language_service", "ltex"},
 }
 )
 
@@ -32,7 +30,27 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+require("lspconfig").ltex.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = { debounce_text_changes = 300 },
+    settings = {
+        ltex = {
+            language = "pt-BR",
+            checkFrequency = "save",
+            additionalRules = {
+                enablePickyRules = true
+            },
+            --              languageToolHttpServerUri = "https://api.languagetoolplus.com",
+            --              languageToolOrg = {
+            --              username = "",
+            --              apiKey = ""
+            --            }
+        }
+    }
+})
 require("lspconfig").lua_ls.setup({
+    cmd = { "/home/brenoav/.local/share/nvim/mason/bin/ltex-ls" },
     on_attach = on_attach,
     capabilities = capabilities
 })
