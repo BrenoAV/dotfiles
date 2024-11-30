@@ -88,12 +88,20 @@ vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true })
 
 -- Highligthing
 function HighlightWordUnderCursor()
-    if vim.fn.getline('.'):sub(vim.fn.col('.') - 1, vim.fn.col('.') - 1):match('[%w]') then
-        vim.cmd('match Search /\\V\\<' .. vim.fn.expand('<cword>') .. '\\>/')
+    local col = vim.fn.col('.')      -- Get the current column
+    local line = vim.fn.getline('.') -- Get the current line
+    if col > 0 and line:sub(col, col):match('[%w_]') then
+        -- Get the current word and escape special characters
+        local word = vim.fn.expand('<cword>')
+        local escaped_word = vim.fn.escape(word, '\\/.*$^~[]')
+        -- Highlight the escaped word
+        vim.cmd('match Search /\\V\\<' .. escaped_word .. '\\>/')
     else
+        -- If not on a word, remove highlights
         vim.cmd('match none')
     end
 end
+
 vim.cmd('autocmd CursorHold,CursorHoldI * lua HighlightWordUnderCursor()')
 vim.api.nvim_set_keymap('n', '<C-n>', ':noh<CR>', { noremap = true, silent = true })
 
@@ -103,4 +111,3 @@ vim.api.nvim_set_keymap('n', '<Leader>ss', ':mks! ' .. session_dir .. '/*.vim<BS
     { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', '<Leader>so', ':so ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>',
     { noremap = true, silent = false })
-

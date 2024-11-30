@@ -1,6 +1,8 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "pyright", "ruff", "texlab", "dockerls", "docker_compose_language_service", "ltex"},
+    ensure_installed = {
+        "lua_ls", "pyright", "ruff", "texlab", "dockerls",
+        "docker_compose_language_service", "ltex"},
 }
 )
 
@@ -33,6 +35,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require("lspconfig").ltex.setup({
     on_attach = on_attach,
     capabilities = capabilities,
+    filetypes = { "markdown", "tex" },
     flags = { debounce_text_changes = 300 },
     settings = {
         ltex = {
@@ -50,7 +53,6 @@ require("lspconfig").ltex.setup({
     }
 })
 require("lspconfig").lua_ls.setup({
-    cmd = { "/home/brenoav/.local/share/nvim/mason/bin/ltex-ls" },
     on_attach = on_attach,
     capabilities = capabilities
 })

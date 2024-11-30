@@ -41,6 +41,7 @@ require("lazy").setup({
         -------------------------------------------------------------------------
         "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
+        "rafamadriz/friendly-snippets",
         -------------------------------------------------------------------------
         -- Telescope
         -------------------------------------------------------------------------
@@ -109,8 +110,26 @@ require("lazy").setup({
             'goolord/alpha-nvim',
             dependencies = { 'echasnovski/mini.icons' },
             config = function()
-                require'alpha'.setup(require'alpha.themes.startify'.config)
+                require 'alpha'.setup(require 'alpha.themes.startify'.config)
             end
+        },
+        {
+            "prettier/vim-prettier",
+            build = "yarn install --frozen-lockfile --production",
+            ft = {
+                "javascript",
+                "typescript",
+                "css",
+                "less",
+                "scss",
+                "json",
+                "graphql",
+                "markdown",
+                "vue",
+                "svelte",
+                "yaml",
+                "html"
+            },
         }
     },
 })
