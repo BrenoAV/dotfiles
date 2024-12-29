@@ -21,15 +21,25 @@ cmp.setup({
     }, {
         { name = 'buffer' },
         { name = 'path' },
-        { name = 'cmdline' },
+        -- { name = 'nvim_lsp_signature_help' },
+    }, {
     })
 })
 
-cmp.setup.filetype('html', {
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'buffer' },   -- Buffer words
-        { name = 'path' },     -- File paths
-    })
+-- Only enable cmp-cmdline for commands or search
+require'cmp'.setup.cmdline(':', {
+    sources = {
+        { name = 'cmdline' }
+    }
 })
+
+require'cmp'.setup.cmdline('/', {
+    sources = {
+        { name = 'buffer' }
+    }
+})
+
+-- Bind <C-s> to trigger signature help in insert mode
+vim.keymap.set('i', '<C-s>', function()
+    vim.lsp.buf.signature_help()
+end, { noremap = true, silent = true })

@@ -2,7 +2,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
         "lua_ls", "pyright", "ruff", "texlab", "dockerls",
-        "docker_compose_language_service", "ltex"},
+        "docker_compose_language_service", "ltex", "yamlls" },
 }
 )
 
@@ -39,7 +39,7 @@ require("lspconfig").ltex.setup({
     flags = { debounce_text_changes = 300 },
     settings = {
         ltex = {
-            language = "pt-BR",
+            language = "en-US",
             checkFrequency = "save",
             additionalRules = {
                 enablePickyRules = true
@@ -97,6 +97,12 @@ require("lspconfig").dockerls.setup({
     capabilities = capabilities,
 })
 require("lspconfig").docker_compose_language_service.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+
+
+require("lspconfig").yamlls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
