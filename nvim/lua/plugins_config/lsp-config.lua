@@ -2,7 +2,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
         "lua_ls", "pyright", "ruff", "texlab", "dockerls",
-        "docker_compose_language_service", "ltex", "yamlls" },
+        "docker_compose_language_service", "yamlls" },
 }
 )
 
@@ -32,46 +32,24 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-require("lspconfig").ltex.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "markdown", "tex" },
-    flags = { debounce_text_changes = 300 },
-    settings = {
-        ltex = {
-            language = "en-US",
-            checkFrequency = "save",
-            additionalRules = {
-                enablePickyRules = true
-            },
-            --              languageToolHttpServerUri = "https://api.languagetoolplus.com",
-            --              languageToolOrg = {
-            --              username = "",
-            --              apiKey = ""
-            --            }
-        }
-    }
-})
 require("lspconfig").lua_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities
 })
-require("lspconfig").pyright.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
+require('lspconfig').pyright.setup {
     settings = {
+        pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+        },
         python = {
             analysis = {
-                ignore = "*",
-                disableOrganizeImports = false,
-                typeCheckingMode = "basic",
-                autoSearchPaths = true,
-                useLibraryCodeForTypes = true,
-                diagnosticMode = 'openFilesOnly'
-            }
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                ignore = { '*' },
+            },
         },
     },
-})
+}
 require("lspconfig").ruff.setup({
     on_attach = on_attach,
     capabilities = capabilities
@@ -100,8 +78,6 @@ require("lspconfig").docker_compose_language_service.setup({
     on_attach = on_attach,
     capabilities = capabilities,
 })
-
-
 require("lspconfig").yamlls.setup({
     on_attach = on_attach,
     capabilities = capabilities,

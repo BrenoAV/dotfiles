@@ -1,5 +1,6 @@
 require("options")
 require("lazy-config")
+require("spell-check")
 require("plugins_config.colors")
 require("plugins_config.lsp-config")
 require("plugins_config.cmp-config")
