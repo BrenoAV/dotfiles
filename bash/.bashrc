@@ -1,10 +1,35 @@
-function parse_git_dirty {
-  [[ $(git status --porcelain 2> /dev/null) ]] && echo "*"
-}
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(parse_git_dirty))/"
-}
+#
+# ~/.bashrc
+#
 
-export PS1="\n\t \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+if [ -f ~/.bash_aliases ];
+ then
+    . ~/.bash_aliases
+fi
 
-# export PS1="\n\t \[\033[32m\]\w\[\033[33m\]\$(GIT_PS1_SHOWUNTRACKEDFILES=1 GIT_PS1_SHOWDIRTYSTATE=1 __git_ps1)\[\033[00m\] $ "
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+. "$HOME/.local/bin/env"
+
+# CUDA START
+export PATH=$PATH:/usr/local/cuda-12.8/bin
+export LD_LIBRARY_PATH=$PATH:/usr/local/cuda-12.8/lib64
+# CUDA END
+
+# FZF START
+inv() {
+    fzf -m --preview="cat {}" | xargs -I {} nvim "{}"
+}
+pdf() {
+    fd -g "$1*.pdf" | fzf | xargs -I {} bash -c 'zathura "{}" & disown'
+}
+# FZF END
+
+eval "$(fzf --bash)"
+
+# Install from 'curl -sS https://starship.rs/install.sh | sh'
+eval "$(starship init bash)"
