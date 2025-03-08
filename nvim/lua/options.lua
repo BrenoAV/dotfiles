@@ -1,5 +1,4 @@
 vim.opt.mouse = 'a'
-vim.opt.clipboard = 'unnamedplus' -- Copy/paste to system clipboard
 vim.opt.number = true
 vim.opt.tabstop = 4               -- show existing tab with 4 spaces width
 vim.opt.softtabstop = 4           -- show existing tab with 4 spaces width
@@ -28,14 +27,7 @@ vim.opt.filetype = 'on'
 vim.opt.termguicolors = true
 vim.g.mapleader = ' '
 vim.api.nvim_set_var('maplocalleader', ',')
-
-local is_windows = package.config:sub(1, 1) == '\\'
-
-if is_windows then
-    vim.g.python3_host_prog = 'C:\\Users\\brenoav\\.pyenv\\pyenv-win\\versions\\3.12.7\\python.exe'
-else
-    vim.g.python3_host_prog = '/usr/bin/python3'
-end
+vim.g.python3_host_prog = '/usr/bin/python3'
 
 -- Finding Files
 -- Search down into subfolders

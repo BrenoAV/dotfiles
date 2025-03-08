@@ -1,8 +1,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = {
-        "lua_ls", "pyright", "ruff", "texlab", "dockerls",
-        "docker_compose_language_service", "yamlls" },
+    ensure_installed =
+    { "lua_ls", "pyright", "ruff", "texlab" }
 }
 )
 
@@ -41,11 +40,12 @@ require('lspconfig').pyright.setup {
         pyright = {
             -- Using Ruff's import organizer
             disableOrganizeImports = true,
+            disableTaggedHints = true
         },
         python = {
             analysis = {
-                -- Ignore all files for analysis to exclusively use Ruff for linting
-                ignore = { '*' },
+                diagnosticMode = "on",
+                typeCheckingMode = "strict",
             },
         },
     },
@@ -69,16 +69,4 @@ require("lspconfig").texlab.setup({
             },
         },
     },
-})
-require("lspconfig").dockerls.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
-require("lspconfig").docker_compose_language_service.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
-require("lspconfig").yamlls.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
 })
