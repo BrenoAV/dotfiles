@@ -44,8 +44,7 @@ require('lspconfig').pyright.setup {
         },
         python = {
             analysis = {
-                diagnosticMode = "on",
-                typeCheckingMode = "strict",
+                ignore = { '*' },
             },
         },
     },
