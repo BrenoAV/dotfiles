@@ -1,7 +1,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed =
-    { "lua_ls", "pyright", "ruff", "texlab" }
+    { "lua_ls", "pyright", "ruff", "texlab", "ltex" }
 }
 )
 
@@ -31,6 +31,21 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+require("lspconfig").ltex.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = { debounce_text_changes = 300 },
+    settings = {
+        ltex = {
+            language = "pt-BR",
+            checkFrequency = "save",
+            enabled = { "bibtex", "gitcommit", "markdown", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context", "html", "xhtml", "mail", "plaintext" },
+            additionalRules = {
+                enablePickyRules = true
+            }
+        }
+    }
+})
 require("lspconfig").lua_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities

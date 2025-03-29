@@ -134,10 +134,10 @@ require("lazy").setup({
         -------------------------------------------------------------------------
         -- Vim IPython Cell
         -------------------------------------------------------------------------
+        { 'jpalardy/vim-slime' },
         {
             'hanschen/vim-ipython-cell',
-            dependencies = 'jpalardy/vim-slime',
-            ft = 'python'
+            ft = { "python" }
         }
     },
 })
