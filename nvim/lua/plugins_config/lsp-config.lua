@@ -37,7 +37,7 @@ require("lspconfig").ltex.setup({
     flags = { debounce_text_changes = 300 },
     settings = {
         ltex = {
-            language = "pt-BR",
+            language = "en-US",
             checkFrequency = "save",
             enabled = { "bibtex", "gitcommit", "markdown", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context", "html", "xhtml", "mail", "plaintext" },
             additionalRules = {

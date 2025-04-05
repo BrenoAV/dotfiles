@@ -100,15 +100,8 @@ require("lazy").setup({
             ft = { "markdown" },
         },
         -------------------------------------------------------------------------
-        -- Startup
+        -- Vim Prettier
         -------------------------------------------------------------------------
-        {
-            'goolord/alpha-nvim',
-            dependencies = { 'echasnovski/mini.icons' },
-            config = function()
-                require 'alpha'.setup(require 'alpha.themes.startify'.config)
-            end
-        },
         {
             "prettier/vim-prettier",
             build = "yarn install --frozen-lockfile --production",
