@@ -39,7 +39,7 @@ require("lspconfig").ltex.setup({
         ltex = {
             language = "en-US",
             checkFrequency = "save",
-            enabled = { "bibtex", "gitcommit", "markdown", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context", "html", "xhtml", "mail", "plaintext" },
+            enabled = { "markdown", "tex", "plaintext" },
             additionalRules = {
                 enablePickyRules = true
             }

@@ -13,9 +13,19 @@ local function toggle_spell_lang()
     end
 end
 
--- Set default spell language
+-- Function to toggle spell checking on/off
+local function toggle_spell()
+    vim.opt.spell = not vim.opt.spell:get()
+    if vim.opt.spell:get() then
+        print("Spell check: ON")
+    else
+        print("Spell check: OFF")
+    end
+end
+
+-- Set default spell language and enable spell check
 vim.opt.spelllang = spell_languages
-vim.opt.spell = true
+vim.opt.spell = false
 
 -- Autocommand to enable spell checking for text-based files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
@@ -26,5 +36,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     end,
 })
 
--- Keybinding to toggle between the languages
-vim.keymap.set('n', '<leader>sl', toggle_spell_lang, { noremap = true, silent = true })
+-- Keybindings
+vim.keymap.set('n', '<leader>sl', toggle_spell_lang, { noremap = true, silent = true }) -- Toggle language
+vim.keymap.set('n', '<leader>sc', toggle_spell, { noremap = true, silent = true })     -- Toggle spell check
