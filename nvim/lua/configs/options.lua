@@ -1,5 +1,6 @@
 vim.opt.mouse = 'a'
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.tabstop = 4               -- show existing tab with 4 spaces width
 vim.opt.softtabstop = 4           -- show existing tab with 4 spaces width
 vim.opt.shiftwidth = 4            -- when identing with '>', use 4 spaces width
@@ -20,27 +21,12 @@ vim.opt.backup = false            -- no backup files
 vim.opt.writebackup = false       -- no backup files
 vim.opt.splitright = true         -- create the vertical splits to the right
 vim.opt.splitbelow = true         -- create the horizontal splits below
-vim.opt.autoread = true           -- update vim after file update from outside
-vim.opt.relativenumber = true
 vim.opt.foldmethod = 'indent'
 vim.opt.filetype = 'on'
 vim.opt.termguicolors = true
 vim.g.mapleader = ' '
-vim.api.nvim_set_var('maplocalleader', ',')
+vim.g.maplocalleader = ','
 vim.g.python3_host_prog = '/usr/bin/python3'
-
--- Finding Files
--- Search down into subfolders
-vim.opt.path:append("**")
--- Provides tab-completion for all file-related tasks
-vim.opt.wildmenu = true
--- Display all matching files when we tab complete
--- Not necessary in most Lua-based editors as they often have different autocompletion mechanisms
--- Lua editors may have their own ways to handle autocomplete
-
--- Things to consider:
--- - :b lets you autocomplete any open buffer
--- Not applicable in most Lua-based editors
 
 -- Moving around, tabs, windows and buffers
 
@@ -57,11 +43,9 @@ vim.api.nvim_set_keymap('n', '<leader>4', '<CMD>tabn 4<CR>', { noremap = true, s
 vim.api.nvim_set_keymap('n', '<leader>5', '<CMD>tabn 5<CR>', { noremap = true, silent = true })
 
 -- navigate between Buffers
-vim.api.nvim_set_keymap('n', '<C-h>', ':bn<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-l>', ':bp<CR>', { noremap = true })
-
--- Close the current buffer
-vim.api.nvim_set_keymap('n', 'td', ':bd<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>n', ':bn<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>p', ':bp<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>d', ':bd<CR>', { noremap = true, silent = true})
 
 -- delete a buffer without losing the split window
 vim.api.nvim_set_keymap('n', '<C-x>', ':bp\\|bd #<CR>', { noremap = true })
@@ -77,29 +61,4 @@ vim.api.nvim_set_keymap('v', '<M-Up>', ':m \'<-2<CR>gv=gv', { noremap = true, si
 -- Move between wrapped text
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true })
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true })
-
--- Highligthing
-function HighlightWordUnderCursor()
-    local col = vim.fn.col('.')      -- Get the current column
-    local line = vim.fn.getline('.') -- Get the current line
-    if col > 0 and line:sub(col, col):match('[%w_]') then
-        -- Get the current word and escape special characters
-        local word = vim.fn.expand('<cword>')
-        local escaped_word = vim.fn.escape(word, '\\/.*$^~[]')
-        -- Highlight the escaped word
-        vim.cmd('match Search /\\V\\<' .. escaped_word .. '\\>/')
-    else
-        -- If not on a word, remove highlights
-        vim.cmd('match none')
-    end
-end
-
-vim.cmd('autocmd CursorHold,CursorHoldI * lua HighlightWordUnderCursor()')
 vim.api.nvim_set_keymap('n', '<C-n>', ':noh<CR>', { noremap = true, silent = true })
-
--- Shortcuts to execute session saves and restore
-local session_dir = '~/vim-sessions'
-vim.api.nvim_set_keymap('n', '<Leader>ss', ':mks! ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>',
-    { noremap = true, silent = false })
-vim.api.nvim_set_keymap('n', '<Leader>so', ':so ' .. session_dir .. '/*.vim<BS><BS><BS><BS><BS>',
-    { noremap = true, silent = false })
