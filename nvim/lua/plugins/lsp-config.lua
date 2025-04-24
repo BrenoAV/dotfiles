@@ -41,7 +41,7 @@ for _, server in ipairs(servers) do
             ltex = {
                 language = "en-US",
                 checkFrequency = "save",
-                enabled = { "markdown", "tex", "plaintext" },
+                enabled = { "markdown", "latex", "plaintext" },
                 additionalRules = {
                     enablePickyRules = true
                 }
