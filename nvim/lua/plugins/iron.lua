@@ -11,10 +11,10 @@ iron.setup {
       sh = {
         -- Can be a table or a function that
         -- returns a table (see below)
-        command = {"zsh"}
+        command = {"bash"}
       },
       python = {
-        command = { "ipython", "--no-autoindent" },  -- or { "ipython", "--no-autoindent" }
+        command = { "ipython", "--no-autoindent" },
         format = common.bracketed_paste_python,
         block_dividers = { "# %%", "#%%" },
       }

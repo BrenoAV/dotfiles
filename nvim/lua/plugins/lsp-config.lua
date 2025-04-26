@@ -26,9 +26,10 @@ local on_attach = function(client, bufnr)
         vim.lsp.buf.format({ async = true })
     end, bufopts)
 end
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local servers = { "lua_ls", "pyright", "ruff", "texlab", "ltex" }
+
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 for _, server in ipairs(servers) do
     local opts = {
