@@ -2,7 +2,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed =
-    { "lua_ls", "pyright", "ruff", "texlab", "ltex" }
+    { "lua_ls", "pyright", "ruff", "texlab", "ltex", "html" }
 }
 )
 
@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
     end, bufopts)
 end
 
-local servers = { "lua_ls", "pyright", "ruff", "texlab", "ltex" }
+local servers = { "lua_ls", "pyright", "ruff", "texlab", "ltex", "html" }
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
