@@ -84,9 +84,13 @@ require("lazy").setup({
             ft = { "markdown" },
         },
         -------------------------------------------------------------------------
-        -- Iron REPL
+        -- Vim-Slime
         -------------------------------------------------------------------------
-        { 'Vigemus/iron.nvim' },
+        { 'jpalardy/vim-slime' },
+        {
+            'hanschen/vim-ipython-cell',
+            ft = { "python" }
+        }
 
     },
 })
