@@ -16,7 +16,7 @@ iron.setup {
     },
     repl_open_cmd = {
       view.split.vertical.rightbelow("%40"), -- cmd_1: open a repl to the right
-      view.split.rightbelow("%25")  -- cmd_2: open a repl below
+      view.split.rightbelow("%35")  -- cmd_2: open a repl below
     }
 
   },
@@ -46,14 +46,8 @@ iron.setup {
     exit = "<space>sq",
     clear = "<space>cl",
   },
-  -- If the highlight is on, you can change how it looks
-  -- For the available options, check nvim_set_hl
   highlight = {
     italic = true
   },
-  ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
+  ignore_blank_lines = true,
 }
-
--- iron also has a list of commands, see :h iron-commands for all available commands
-vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
-vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
