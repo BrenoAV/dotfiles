@@ -40,7 +40,7 @@ for _, server in ipairs(servers) do
     if server == "ltex" then
         opts.settings = {
             ltex = {
-                language = "en-US",
+                language = "pt-BR",
                 checkFrequency = "save",
                 enabled = { "markdown", "latex", "plaintext" },
                 additionalRules = {

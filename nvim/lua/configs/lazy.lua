@@ -72,8 +72,9 @@ require("lazy").setup({
         -------------------------------------------------------------------------
         { "tpope/vim-surround" },
         -------------------------------------------------------------------------
-        -- Markdown Preview
+        -- Markdown
         -------------------------------------------------------------------------
+        { "preservim/vim-markdown", dependencies = { "godlygeek/tabular" } },
         {
             "iamcco/markdown-preview.nvim",
             cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -86,8 +87,31 @@ require("lazy").setup({
         -------------------------------------------------------------------------
         -- Vim-Iron
         -------------------------------------------------------------------------
-        { 'Vigemus/iron.nvim' },
+        { "Vigemus/iron.nvim" },
+        -------------------------------------------------------------------------
+        -- NeoFormat
+        -------------------------------------------------------------------------
+        { "sbdchd/neoformat" },
+        -------------------------------------------------------------------------
+        -- Vim-Prettier
+        -------------------------------------------------------------------------
+        'prettier/vim-prettier',
+        branch = 'release/0.x', -- Assuming you still want this branch
+        build = 'yarn install --frozen-lockfile --production',
+        ft = {
+            'javascript',
+            'typescript',
+            'css',
+            'less',
+            'scss',
+            'json',
+            'graphql',
+            'markdown',
+            'vue',
+            'svelte',
+            'yaml',
+            'html',
+        }
     },
-    install = { colorscheme = { 'vscode' } },
-    checker = { enabled = true }
+    install = { colorscheme = { "vscode" } },
 })
