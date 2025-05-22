@@ -95,23 +95,31 @@ require("lazy").setup({
         -------------------------------------------------------------------------
         -- Vim-Prettier
         -------------------------------------------------------------------------
-        'prettier/vim-prettier',
-        branch = 'release/0.x', -- Assuming you still want this branch
-        build = 'yarn install --frozen-lockfile --production',
-        ft = {
-            'javascript',
-            'typescript',
-            'css',
-            'less',
-            'scss',
-            'json',
-            'graphql',
-            'markdown',
-            'vue',
-            'svelte',
-            'yaml',
-            'html',
-        }
+        {
+            'prettier/vim-prettier',
+            branch = 'release/0.x', -- Assuming you still want this branch
+            build = 'yarn install --frozen-lockfile --production',
+            ft = {
+                'javascript',
+                'typescript',
+                'css',
+                'less',
+                'scss',
+                'json',
+                'graphql',
+                'markdown',
+                'vue',
+                'svelte',
+                'yaml',
+                'html',
+            }
+        },
+        {
+            "m4xshen/hardtime.nvim",
+            lazy = false,
+            dependencies = { "MunifTanjim/nui.nvim" },
+            opts = {},
+        },
     },
     install = { colorscheme = { "vscode" } },
 })
