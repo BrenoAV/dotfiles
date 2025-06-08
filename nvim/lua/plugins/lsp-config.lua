@@ -1,5 +1,5 @@
 -- Mason
-local servers = { "lua_ls", "pyright", "ruff", "texlab", "ltex", "html" }
+local servers = { "lua_ls", "basedpyright", "ruff", "texlab", "ltex", "html" }
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = servers,
@@ -48,17 +48,14 @@ for _, server in ipairs(servers) do
                 }
             }
         }
-    elseif server == "pyright" then
+    elseif server == "basedpyright" then
         opts.settings = {
             pyright = {
-                -- Using Ruff's import organizer
-                disableOrganizeImports = true,
-            },
-            python = {
                 analysis = {
-                    ignore = { '*' },
-                },
-            },
+                    diagnosticMode = "openFilesOnly",
+                    disableOrganizeImports = false
+                }
+            }
         }
     elseif server == "texlab" then
         opts.settings = {
