@@ -50,10 +50,23 @@ for _, server in ipairs(servers) do
         }
     elseif server == "basedpyright" then
         opts.settings = {
-            pyright = {
+            basedpyright = {
                 analysis = {
+                    -- Only analyze open files to reduce CPU/memory usage
                     diagnosticMode = "openFilesOnly",
-                    disableOrganizeImports = false
+
+                    -- Allow the LSP to organize imports (e.g., sort/remove unused ones)
+                    disableOrganizeImports = false,
+
+                    -- Automatically search for import paths in the workspace
+                    autoSearchPaths = true,
+
+                    -- Use the actual source code of libraries (not just stubs) for better type inference
+                    useLibraryCodeForTypes = true,
+
+                    -- Level of type checking: "off", "basic", or "strict"
+                    -- "basic" is a good middle ground for most projects
+                    typeCheckingMode = "basic",
                 }
             }
         }
