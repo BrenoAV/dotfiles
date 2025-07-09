@@ -1,5 +1,6 @@
 require("core.lazy")
 require("core.lsp-config")
+require("core.spell-checker")
 require("configs.options")
 require("configs.keymaps")
 require("plugins.colors")
