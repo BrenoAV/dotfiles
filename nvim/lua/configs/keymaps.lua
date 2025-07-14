@@ -35,3 +35,11 @@ vim.api.nvim_set_keymap('n', '<C-n>', ':noh<CR>', { noremap = true, silent = tru
 
 -- Terminal
 vim.keymap.set('t', '<leader><Esc>', [[<C-\><C-n>]], { noremap = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    -- Restore default 'ge' in normal mode for markdown files
+    vim.api.nvim_buf_set_keymap(0, "n", "ge", "ge", { noremap = true, silent = true })
+  end,
+})

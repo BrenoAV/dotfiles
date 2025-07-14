@@ -1,5 +1,5 @@
 -- Mason
-local servers = { "lua_ls", "basedpyright", "ruff", "texlab", "html" }
+local servers = { "lua_ls", "basedpyright", "ruff", "texlab", "html", "ltex" }
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = servers,
@@ -36,8 +36,18 @@ for _, server in ipairs(servers) do
         on_attach = on_attach,
         capabilities = capabilities
     }
-
-    if server == "basedpyright" then
+    if server == "ltex" then
+        opts.settings = {
+            ltex = {
+                language = "en-US",
+                checkFrequency = "save",
+                enabled = { "markdown", "latex", "plaintext" },
+                additionalRules = {
+                    enablePickyRules = true
+                }
+            }
+        }
+    elseif server == "basedpyright" then
         opts.settings = {
             basedpyright = {
                 analysis = {
