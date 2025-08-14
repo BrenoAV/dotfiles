@@ -43,3 +43,8 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.api.nvim_buf_set_keymap(0, "n", "ge", "ge", { noremap = true, silent = true })
   end,
 })
+
+vim.api.nvim_create_user_command("OpenHTML", function()
+  vim.cmd('!explorer.exe $(wslpath -w %)')
+end, {})
+

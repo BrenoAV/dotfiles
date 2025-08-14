@@ -80,9 +80,9 @@ require("lazy").setup({
             cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
             build = "yarn install",
             init = function()
-                vim.g.mkdp_filetypes = { "markdown" }
+                vim.g.mkdp_filetypes = { "markdown", "html" }
             end,
-            ft = { "markdown" },
+            ft = { "markdown", "html" },
         },
         -------------------------------------------------------------------------
         -- Vim-Iron
