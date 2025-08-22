@@ -33,3 +33,14 @@ eval "$(fzf --bash)"
 
 # Install from 'curl -sS https://starship.rs/install.sh | sh'
 eval "$(starship init bash)"
+
+ytlist() {
+    if [ -z "$1" ]; then
+        echo "Usage: ytlist <playlist_url>"
+        return 1
+    fi
+
+    yt-dlp --flat-playlist \
+           --print "- [ ] %(playlist_index)s. [%(title)s](%(url)s)" \
+           "$1"
+}
