@@ -1,5 +1,5 @@
 -- Mason
-local servers = { "lua_ls", "basedpyright", "ruff", "texlab", "html" }
+local servers = { "lua_ls", "basedpyright", "ruff", "texlab", "html"}
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = servers,
@@ -40,21 +40,8 @@ for _, server in ipairs(servers) do
         opts.settings = {
             basedpyright = {
                 analysis = {
-                    -- Only analyze open files to reduce CPU/memory usage
-                    diagnosticMode = "openFilesOnly",
-
-                    -- Allow the LSP to organize imports (e.g., sort/remove unused ones)
                     disableOrganizeImports = false,
-
-                    -- Automatically search for import paths in the workspace
-                    autoSearchPaths = true,
-
-                    -- Use the actual source code of libraries (not just stubs) for better type inference
-                    useLibraryCodeForTypes = true,
-
-                    -- Level of type checking: "off", "basic", or "strict"
-                    -- "basic" is a good middle ground for most projects
-                    typeCheckingMode = "basic",
+                    typeCheckingMode = "off",
                 }
             }
         }
@@ -72,6 +59,7 @@ for _, server in ipairs(servers) do
             },
         }
     end
-
     lspconfig[server].setup(opts)
 end
+
+vim.lsp.enable('ty')
