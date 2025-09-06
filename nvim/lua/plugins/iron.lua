@@ -12,6 +12,7 @@ iron.setup {
         command = { "python" },
         format = common.bracketed_paste_python,
         block_dividers = { "# %%", "#%%" },
+        env = {PYTHON_BASIC_REPL = "1"}
       }
     },
     repl_open_cmd = {

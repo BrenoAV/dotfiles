@@ -1,5 +1,5 @@
 -- Mason
-local servers = { "lua_ls", "basedpyright", "ruff", "texlab", "html"}
+local servers = { "lua_ls", "ruff", "texlab", "html", "ltex_plus"}
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = servers,
@@ -36,16 +36,7 @@ for _, server in ipairs(servers) do
         on_attach = on_attach,
         capabilities = capabilities
     }
-    if server == "basedpyright" then
-        opts.settings = {
-            basedpyright = {
-                analysis = {
-                    disableOrganizeImports = false,
-                    typeCheckingMode = "off",
-                }
-            }
-        }
-    elseif server == "texlab" then
+    if server == "texlab" then
         opts.settings = {
             texlab = {
                 build = {
@@ -58,8 +49,20 @@ for _, server in ipairs(servers) do
                 },
             },
         }
+    elseif server == "ltex-ls-plus" then
+        opts.settings = {
+            ltex = {
+                language = "en-US",
+                checkFrequency = "save",
+                additionalRules = {
+                    enablePickyRules = true,
+                },
+                completionEnabled = true,
+            }
+        }
     end
     lspconfig[server].setup(opts)
 end
+
 
 vim.lsp.enable('ty')
