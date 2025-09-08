@@ -120,6 +120,7 @@ require("lazy").setup({
             dependencies = { "MunifTanjim/nui.nvim" },
             opts = {},
         },
+        {"barreiroleo/ltex-extra.nvim"}
     },
     install = { colorscheme = { "vscode" } },
 })
