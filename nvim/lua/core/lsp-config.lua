@@ -1,13 +1,11 @@
 -- Mason
-local servers = { "lua_ls", "ruff", "texlab", "html", "ltex_plus" }
+local servers = { "lua_ls", "basedpyright", "ruff", "texlab", "html", "ltex_plus" }
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = servers,
     automatic_enable = false
 }
 )
-
-local lspconfig = require "lspconfig"
 
 local on_attach = function(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -36,7 +34,17 @@ for _, server in ipairs(servers) do
         on_attach = on_attach,
         capabilities = capabilities
     }
-    if server == "texlab" then
+    if server == "basedpyright" then
+        opts.settings = {
+            basedpyright = {
+                disableOrganizeImports = false,
+                diagnosticMode = "openFilesOnly",
+                analysis = {
+                    typeCheckingMode = "recommended",
+                }
+            }
+        }
+    elseif server == "texlab" then
         opts.settings = {
             texlab = {
                 build = {
@@ -80,8 +88,6 @@ for _, server in ipairs(servers) do
             }
         }
     end
-    lspconfig[server].setup(opts)
+    vim.lsp.config(server, opts)
+    vim.lsp.enable(server)
 end
-
-
-vim.lsp.enable('ty')
